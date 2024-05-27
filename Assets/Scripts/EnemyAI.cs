@@ -128,7 +128,7 @@ public class EnemyAI : MonoBehaviour
             // Set the bullet's velocity to move in the direction the player is facing then destory it after 5 seconds
             audioSource.Play();
             bullet.GetComponent<Rigidbody>().velocity = bulletOrigin.forward * bulletSpeed;
-            Destroy(bullet, 5);
+            Destroy(bullet, 2);
 
             isAttacked = true;
             Invoke("ResetAttack", attackCooldown);
@@ -172,6 +172,7 @@ public class EnemyAI : MonoBehaviour
         if (collision.gameObject.tag == "bullet")
         {
             TakeDamage(damagePerHit);
+            Destroy(collision.gameObject);
         }
     }
 }
