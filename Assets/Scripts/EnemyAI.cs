@@ -158,7 +158,7 @@ public class EnemyAI : MonoBehaviour
         
     }
 
-    // alerts when enemy AI is in detection range and / or attack range
+    // indicators for enemy AI detection range and attack range (for level design)
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
