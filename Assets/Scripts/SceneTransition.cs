@@ -28,10 +28,20 @@ public class SceneTransition : MonoBehaviour
         }
     }
 
+    public void LoadNextLevelWithDelay()
+    {
+        Invoke("LoadNextLevel", 0.5f);
+    }
+
     public void RestartScene()
     {
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadSceneAsync(currentSceneIndex);
+    }
+
+    public void RestartLevelWithDelay()
+    {
+        Invoke("RestartScene", 0.5f);
     }
 
     public void PauseUnpauseScene()
