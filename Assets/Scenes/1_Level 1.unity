@@ -193,6 +193,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 479527161}
     m_Modifications:
+    - target: {fileID: 744494542479430195, guid: 9b87b29cd9b46b2459d7dd35154e4f19, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3128678701150289877, guid: 9b87b29cd9b46b2459d7dd35154e4f19, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4718498207837099641, guid: 9b87b29cd9b46b2459d7dd35154e4f19, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 6329912088227036896, guid: 9b87b29cd9b46b2459d7dd35154e4f19, type: 3}
       propertyPath: m_LocalPosition.x
       value: 83.83
@@ -236,6 +248,10 @@ PrefabInstance:
     - target: {fileID: 7026464624626093299, guid: 9b87b29cd9b46b2459d7dd35154e4f19, type: 3}
       propertyPath: m_Name
       value: Medieval_Barrel (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7026464624626093299, guid: 9b87b29cd9b46b2459d7dd35154e4f19, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -719,9 +735,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1699239116}
     m_Modifications:
+    - target: {fileID: 6142991616609726323, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 6939171096792838955, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
       propertyPath: m_Name
       value: Medieval_Chimney_StackMiddle_Half (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6939171096792838955, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7805947077847536761, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
       propertyPath: m_LocalPosition.x
@@ -762,6 +786,18 @@ PrefabInstance:
     - target: {fileID: 7805947077847536761, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8394276727227751183, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8860781118213302212, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8955727877826792248, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -921,9 +957,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 31.415
       objectReference: {fileID: 0}
+    - target: {fileID: 4816450570346772032, guid: 964fb36337b863648bc6dee30b6f3c62, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 4816450570346772036, guid: 964fb36337b863648bc6dee30b6f3c62, type: 3}
       propertyPath: m_Name
       value: Medieval_Chimney_Slab_Base
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816450570346772036, guid: 964fb36337b863648bc6dee30b6f3c62, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816450570346772038, guid: 964fb36337b863648bc6dee30b6f3c62, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1114,9 +1162,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1699239116}
     m_Modifications:
+    - target: {fileID: 6142991616609726323, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 6939171096792838955, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
       propertyPath: m_Name
       value: Medieval_Chimney_StackMiddle_Half
+      objectReference: {fileID: 0}
+    - target: {fileID: 6939171096792838955, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7805947077847536761, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1157,6 +1213,18 @@ PrefabInstance:
     - target: {fileID: 7805947077847536761, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8394276727227751183, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8860781118213302212, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8955727877826792248, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2038,9 +2106,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 479527161}
     m_Modifications:
+    - target: {fileID: 6142991616609726323, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 6939171096792838955, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
       propertyPath: m_Name
       value: Medieval_Chimney_StackMiddle_Half (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6939171096792838955, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7805947077847536761, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2081,6 +2157,18 @@ PrefabInstance:
     - target: {fileID: 7805947077847536761, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8394276727227751183, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8860781118213302212, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8955727877826792248, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2244,6 +2332,14 @@ MonoBehaviour:
     m_Bits: 128
   moveForce: 4
   animator: {fileID: 1945713664}
+  dashForce: 12
+  dashDuration: 0.5
+  useCameraForward: 1
+  allowAllDirections: 1
+  disableGravity: 0
+  resetVel: 1
+  dashCd: 2
+  dashKey: 304
 --- !u!82 &225646632
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2508,9 +2604,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 349.367
       objectReference: {fileID: 0}
+    - target: {fileID: 4816450570346772032, guid: 964fb36337b863648bc6dee30b6f3c62, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 4816450570346772036, guid: 964fb36337b863648bc6dee30b6f3c62, type: 3}
       propertyPath: m_Name
       value: Medieval_Chimney_Slab_Base (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816450570346772036, guid: 964fb36337b863648bc6dee30b6f3c62, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816450570346772038, guid: 964fb36337b863648bc6dee30b6f3c62, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2933,6 +3041,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 479527161}
     m_Modifications:
+    - target: {fileID: 744494542479430195, guid: 9b87b29cd9b46b2459d7dd35154e4f19, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3128678701150289877, guid: 9b87b29cd9b46b2459d7dd35154e4f19, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4718498207837099641, guid: 9b87b29cd9b46b2459d7dd35154e4f19, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 6329912088227036896, guid: 9b87b29cd9b46b2459d7dd35154e4f19, type: 3}
       propertyPath: m_LocalPosition.x
       value: 85.5393
@@ -2976,6 +3096,10 @@ PrefabInstance:
     - target: {fileID: 7026464624626093299, guid: 9b87b29cd9b46b2459d7dd35154e4f19, type: 3}
       propertyPath: m_Name
       value: Medieval_Barrel (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7026464624626093299, guid: 9b87b29cd9b46b2459d7dd35154e4f19, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3057,9 +3181,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 479527161}
     m_Modifications:
+    - target: {fileID: 6142991616609726323, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 6939171096792838955, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
       propertyPath: m_Name
       value: Medieval_Chimney_StackMiddle_Half
+      objectReference: {fileID: 0}
+    - target: {fileID: 6939171096792838955, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7805947077847536761, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3100,6 +3232,18 @@ PrefabInstance:
     - target: {fileID: 7805947077847536761, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8394276727227751183, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8860781118213302212, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8955727877826792248, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3225,6 +3369,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Medieval_Chimney_StackMiddle_Half (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 6939171096792838955, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 7360562419903562939, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
       propertyPath: m_LODs.Array.data[1].renderers.Array.data[0].renderer
       value: 
@@ -3268,6 +3416,18 @@ PrefabInstance:
     - target: {fileID: 7805947077847536761, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 88.354
+      objectReference: {fileID: 0}
+    - target: {fileID: 8394276727227751183, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8860781118213302212, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8955727877826792248, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -4276,9 +4436,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1699239116}
     m_Modifications:
+    - target: {fileID: 6142991616609726323, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 6939171096792838955, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
       propertyPath: m_Name
       value: Medieval_Chimney_StackMiddle_Half (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6939171096792838955, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7805947077847536761, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4319,6 +4487,18 @@ PrefabInstance:
     - target: {fileID: 7805947077847536761, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 376.526
+      objectReference: {fileID: 0}
+    - target: {fileID: 8394276727227751183, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8860781118213302212, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8955727877826792248, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4632,6 +4812,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1699239116}
     m_Modifications:
+    - target: {fileID: 744494542479430195, guid: 9b87b29cd9b46b2459d7dd35154e4f19, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3128678701150289877, guid: 9b87b29cd9b46b2459d7dd35154e4f19, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4718498207837099641, guid: 9b87b29cd9b46b2459d7dd35154e4f19, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 6329912088227036896, guid: 9b87b29cd9b46b2459d7dd35154e4f19, type: 3}
       propertyPath: m_LocalPosition.x
       value: 85.5393
@@ -4675,6 +4867,10 @@ PrefabInstance:
     - target: {fileID: 7026464624626093299, guid: 9b87b29cd9b46b2459d7dd35154e4f19, type: 3}
       propertyPath: m_Name
       value: Medieval_Barrel (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7026464624626093299, guid: 9b87b29cd9b46b2459d7dd35154e4f19, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4924,6 +5120,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1699239116}
     m_Modifications:
+    - target: {fileID: 744494542479430195, guid: 9b87b29cd9b46b2459d7dd35154e4f19, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3128678701150289877, guid: 9b87b29cd9b46b2459d7dd35154e4f19, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4718498207837099641, guid: 9b87b29cd9b46b2459d7dd35154e4f19, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 6329912088227036896, guid: 9b87b29cd9b46b2459d7dd35154e4f19, type: 3}
       propertyPath: m_LocalPosition.x
       value: 82.82
@@ -4967,6 +5175,10 @@ PrefabInstance:
     - target: {fileID: 7026464624626093299, guid: 9b87b29cd9b46b2459d7dd35154e4f19, type: 3}
       propertyPath: m_Name
       value: Medieval_Barrel (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7026464624626093299, guid: 9b87b29cd9b46b2459d7dd35154e4f19, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5795,9 +6007,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 479527161}
     m_Modifications:
+    - target: {fileID: 6142991616609726323, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 6939171096792838955, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
       propertyPath: m_Name
       value: Medieval_Chimney_StackMiddle_Half (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6939171096792838955, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7805947077847536761, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5838,6 +6058,18 @@ PrefabInstance:
     - target: {fileID: 7805947077847536761, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8394276727227751183, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8860781118213302212, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8955727877826792248, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6280,6 +6512,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Medieval_Chimney_StackMiddle_Half (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 6939171096792838955, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 7360562419903562939, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
       propertyPath: m_LODs.Array.data[1].renderers.Array.data[0].renderer
       value: 
@@ -6323,6 +6559,18 @@ PrefabInstance:
     - target: {fileID: 7805947077847536761, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 88.354
+      objectReference: {fileID: 0}
+    - target: {fileID: 8394276727227751183, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8860781118213302212, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8955727877826792248, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -6845,9 +7093,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 479527161}
     m_Modifications:
+    - target: {fileID: 6142991616609726323, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 6939171096792838955, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
       propertyPath: m_Name
       value: Medieval_Chimney_StackMiddle_Half (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6939171096792838955, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7805947077847536761, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6888,6 +7144,18 @@ PrefabInstance:
     - target: {fileID: 7805947077847536761, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8394276727227751183, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8860781118213302212, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8955727877826792248, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7617,9 +7885,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 31.415
       objectReference: {fileID: 0}
+    - target: {fileID: 4816450570346772032, guid: 964fb36337b863648bc6dee30b6f3c62, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 4816450570346772036, guid: 964fb36337b863648bc6dee30b6f3c62, type: 3}
       propertyPath: m_Name
       value: Medieval_Chimney_Slab_Base
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816450570346772036, guid: 964fb36337b863648bc6dee30b6f3c62, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816450570346772038, guid: 964fb36337b863648bc6dee30b6f3c62, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8106,9 +8386,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 479527161}
     m_Modifications:
+    - target: {fileID: 6142991616609726323, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 6939171096792838955, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
       propertyPath: m_Name
       value: Medieval_Chimney_StackMiddle_Half (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6939171096792838955, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7805947077847536761, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8149,6 +8437,18 @@ PrefabInstance:
     - target: {fileID: 7805947077847536761, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 376.526
+      objectReference: {fileID: 0}
+    - target: {fileID: 8394276727227751183, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8860781118213302212, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8955727877826792248, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10303,9 +10603,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1699239116}
     m_Modifications:
+    - target: {fileID: 6142991616609726323, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 6939171096792838955, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
       propertyPath: m_Name
       value: Medieval_Chimney_StackMiddle_Half (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6939171096792838955, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7805947077847536761, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10346,6 +10654,18 @@ PrefabInstance:
     - target: {fileID: 7805947077847536761, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8394276727227751183, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8860781118213302212, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8955727877826792248, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10545,6 +10865,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 479527161}
     m_Modifications:
+    - target: {fileID: 744494542479430195, guid: 9b87b29cd9b46b2459d7dd35154e4f19, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3128678701150289877, guid: 9b87b29cd9b46b2459d7dd35154e4f19, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4718498207837099641, guid: 9b87b29cd9b46b2459d7dd35154e4f19, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 6329912088227036896, guid: 9b87b29cd9b46b2459d7dd35154e4f19, type: 3}
       propertyPath: m_LocalPosition.x
       value: 81.901306
@@ -10588,6 +10920,10 @@ PrefabInstance:
     - target: {fileID: 7026464624626093299, guid: 9b87b29cd9b46b2459d7dd35154e4f19, type: 3}
       propertyPath: m_Name
       value: Medieval_Barrel
+      objectReference: {fileID: 0}
+    - target: {fileID: 7026464624626093299, guid: 9b87b29cd9b46b2459d7dd35154e4f19, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12736,9 +13072,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1699239116}
     m_Modifications:
+    - target: {fileID: 6142991616609726323, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 6939171096792838955, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
       propertyPath: m_Name
       value: Medieval_Chimney_StackMiddle_Half (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6939171096792838955, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7805947077847536761, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
       propertyPath: m_LocalPosition.x
@@ -12779,6 +13123,18 @@ PrefabInstance:
     - target: {fileID: 7805947077847536761, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8394276727227751183, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8860781118213302212, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8955727877826792248, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -13010,9 +13366,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 479527161}
     m_Modifications:
+    - target: {fileID: 6142991616609726323, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 6939171096792838955, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
       propertyPath: m_Name
       value: Medieval_Chimney_StackMiddle_Half (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6939171096792838955, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7805947077847536761, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
       propertyPath: m_LocalPosition.x
@@ -13053,6 +13417,18 @@ PrefabInstance:
     - target: {fileID: 7805947077847536761, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8394276727227751183, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8860781118213302212, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8955727877826792248, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -13446,9 +13822,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1699239116}
     m_Modifications:
+    - target: {fileID: 6142991616609726323, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 6939171096792838955, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
       propertyPath: m_Name
       value: Medieval_Chimney_StackMiddle_Half (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6939171096792838955, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7805947077847536761, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
       propertyPath: m_LocalPosition.x
@@ -13489,6 +13873,18 @@ PrefabInstance:
     - target: {fileID: 7805947077847536761, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8394276727227751183, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8860781118213302212, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8955727877826792248, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -14337,9 +14733,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 479527161}
     m_Modifications:
+    - target: {fileID: 6142991616609726323, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 6939171096792838955, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
       propertyPath: m_Name
       value: Medieval_Chimney_StackMiddle_Half (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6939171096792838955, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7805947077847536761, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
       propertyPath: m_LocalPosition.x
@@ -14381,6 +14785,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8394276727227751183, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8860781118213302212, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8955727877826792248, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -14394,9 +14810,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 479527161}
     m_Modifications:
+    - target: {fileID: 6142991616609726323, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 6939171096792838955, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
       propertyPath: m_Name
       value: Medieval_Chimney_StackMiddle_Half (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6939171096792838955, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7805947077847536761, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
       propertyPath: m_LocalPosition.x
@@ -14437,6 +14861,18 @@ PrefabInstance:
     - target: {fileID: 7805947077847536761, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8394276727227751183, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8860781118213302212, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8955727877826792248, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -15138,6 +15574,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1699239116}
     m_Modifications:
+    - target: {fileID: 744494542479430195, guid: 9b87b29cd9b46b2459d7dd35154e4f19, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3128678701150289877, guid: 9b87b29cd9b46b2459d7dd35154e4f19, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4718498207837099641, guid: 9b87b29cd9b46b2459d7dd35154e4f19, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 6329912088227036896, guid: 9b87b29cd9b46b2459d7dd35154e4f19, type: 3}
       propertyPath: m_LocalPosition.x
       value: 81.901306
@@ -15181,6 +15629,10 @@ PrefabInstance:
     - target: {fileID: 7026464624626093299, guid: 9b87b29cd9b46b2459d7dd35154e4f19, type: 3}
       propertyPath: m_Name
       value: Medieval_Barrel
+      objectReference: {fileID: 0}
+    - target: {fileID: 7026464624626093299, guid: 9b87b29cd9b46b2459d7dd35154e4f19, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -16891,9 +17343,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1699239116}
     m_Modifications:
+    - target: {fileID: 6142991616609726323, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 6939171096792838955, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
       propertyPath: m_Name
       value: Medieval_Chimney_StackMiddle_Half (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6939171096792838955, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7805947077847536761, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
       propertyPath: m_LocalPosition.x
@@ -16934,6 +17394,18 @@ PrefabInstance:
     - target: {fileID: 7805947077847536761, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8394276727227751183, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8860781118213302212, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8955727877826792248, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -17749,9 +18221,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1699239116}
     m_Modifications:
+    - target: {fileID: 6142991616609726323, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 6939171096792838955, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
       propertyPath: m_Name
       value: Medieval_Chimney_StackMiddle_Half (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6939171096792838955, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7805947077847536761, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
       propertyPath: m_LocalPosition.x
@@ -17792,6 +18272,18 @@ PrefabInstance:
     - target: {fileID: 7805947077847536761, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8394276727227751183, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8860781118213302212, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8955727877826792248, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -18245,9 +18737,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 349.367
       objectReference: {fileID: 0}
+    - target: {fileID: 4816450570346772032, guid: 964fb36337b863648bc6dee30b6f3c62, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 4816450570346772036, guid: 964fb36337b863648bc6dee30b6f3c62, type: 3}
       propertyPath: m_Name
       value: Medieval_Chimney_Slab_Base (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816450570346772036, guid: 964fb36337b863648bc6dee30b6f3c62, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816450570346772038, guid: 964fb36337b863648bc6dee30b6f3c62, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -20169,6 +20673,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 479527161}
     m_Modifications:
+    - target: {fileID: 744494542479430195, guid: 9b87b29cd9b46b2459d7dd35154e4f19, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3128678701150289877, guid: 9b87b29cd9b46b2459d7dd35154e4f19, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4718498207837099641, guid: 9b87b29cd9b46b2459d7dd35154e4f19, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 6329912088227036896, guid: 9b87b29cd9b46b2459d7dd35154e4f19, type: 3}
       propertyPath: m_LocalPosition.x
       value: 82.82
@@ -20212,6 +20728,10 @@ PrefabInstance:
     - target: {fileID: 7026464624626093299, guid: 9b87b29cd9b46b2459d7dd35154e4f19, type: 3}
       propertyPath: m_Name
       value: Medieval_Barrel (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7026464624626093299, guid: 9b87b29cd9b46b2459d7dd35154e4f19, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -20524,6 +21044,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1699239116}
     m_Modifications:
+    - target: {fileID: 744494542479430195, guid: 9b87b29cd9b46b2459d7dd35154e4f19, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3128678701150289877, guid: 9b87b29cd9b46b2459d7dd35154e4f19, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4718498207837099641, guid: 9b87b29cd9b46b2459d7dd35154e4f19, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 6329912088227036896, guid: 9b87b29cd9b46b2459d7dd35154e4f19, type: 3}
       propertyPath: m_LocalPosition.x
       value: 83.83
@@ -20567,6 +21099,10 @@ PrefabInstance:
     - target: {fileID: 7026464624626093299, guid: 9b87b29cd9b46b2459d7dd35154e4f19, type: 3}
       propertyPath: m_Name
       value: Medieval_Barrel (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7026464624626093299, guid: 9b87b29cd9b46b2459d7dd35154e4f19, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
