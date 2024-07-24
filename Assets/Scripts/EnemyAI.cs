@@ -32,12 +32,17 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] AudioSource audioSource;
     [SerializeField] int damagePerHit;
 
+    private bool isShooting = false;
+    private const string IS_SHOOTING = "IsShooting";
+    [SerializeField] private Animator animator = null;
+
 
     private void Awake()
     {
         player = GameObject.Find("Player").transform;
         agent = GetComponent<NavMeshAgent>();
-        
+
+        if (animator == null) animator = GetComponentInChildren<Animator>();
     }
 
     void Update()
@@ -111,6 +116,8 @@ public class EnemyAI : MonoBehaviour
         //stop chasing & look at player
         agent.SetDestination(transform.position);
         transform.LookAt(player);
+        isShooting = true;
+        animator.SetBool(IS_SHOOTING, isShooting);
 
         if (!isAttacked && isPlayerInAttackRange)
         {
