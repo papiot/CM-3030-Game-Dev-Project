@@ -32,6 +32,14 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] AudioSource audioSource;
     [SerializeField] int damagePerHit;
 
+
+    [SerializeField] ParticleSystemRenderer healthIndicator;
+    [SerializeField] Material threeHitMat;
+    [SerializeField] Material twoHitMat;
+    [SerializeField] Material oneHitMat;
+    [SerializeField] AudioSource enemyDead;
+    [SerializeField] ParticleSystem deathParticles;
+
     private bool isShooting = false;
     private const string IS_SHOOTING = "IsShooting";
     [SerializeField] private Animator animator = null;
@@ -64,6 +72,20 @@ public class EnemyAI : MonoBehaviour
         if(isPlayerInAttackRange)
         {
             AttackPlayer();
+        }
+
+
+        if(health == 3)
+        {
+            healthIndicator.material = threeHitMat;
+        }
+        else if(health == 2)
+        {
+            healthIndicator.material = twoHitMat;
+        }
+        else
+        {
+            healthIndicator.material = oneHitMat;
         }
     }
 
@@ -155,6 +177,8 @@ public class EnemyAI : MonoBehaviour
 
         if(health <= 0)
         {
+            deathParticles.Play();
+            enemyDead.Play();
             Invoke("DestroyEnemy", 0.5f);
         }
     }
