@@ -33,11 +33,24 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] int damagePerHit;
 
 
+    [SerializeField] ParticleSystemRenderer healthIndicator;
+    [SerializeField] Material threeHitMat;
+    [SerializeField] Material twoHitMat;
+    [SerializeField] Material oneHitMat;
+    [SerializeField] AudioSource enemyDead;
+    [SerializeField] ParticleSystem deathParticles;
+
+    private bool isShooting = false;
+    private const string IS_SHOOTING = "IsShooting";
+    [SerializeField] private Animator animator = null;
+
+
     private void Awake()
     {
         player = GameObject.Find("Player").transform;
         agent = GetComponent<NavMeshAgent>();
-        
+
+        if (animator == null) animator = GetComponentInChildren<Animator>();
     }
 
     void Update()
@@ -59,6 +72,20 @@ public class EnemyAI : MonoBehaviour
         if(isPlayerInAttackRange)
         {
             AttackPlayer();
+        }
+
+
+        if(health == 3)
+        {
+            healthIndicator.material = threeHitMat;
+        }
+        else if(health == 2)
+        {
+            healthIndicator.material = twoHitMat;
+        }
+        else
+        {
+            healthIndicator.material = oneHitMat;
         }
     }
 
@@ -111,6 +138,8 @@ public class EnemyAI : MonoBehaviour
         //stop chasing & look at player
         agent.SetDestination(transform.position);
         transform.LookAt(player);
+        isShooting = true;
+        animator.SetBool(IS_SHOOTING, isShooting);
 
         if (!isAttacked && isPlayerInAttackRange)
         {
@@ -148,6 +177,8 @@ public class EnemyAI : MonoBehaviour
 
         if(health <= 0)
         {
+            deathParticles.Play();
+            enemyDead.Play();
             Invoke("DestroyEnemy", 0.5f);
         }
     }
