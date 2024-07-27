@@ -46,12 +46,12 @@ GameObject:
   - component: {fileID: 4194894697338603844}
   - component: {fileID: 6792133246861032915}
   m_Layer: 3
-  m_Name: nozzle
+  m_Name: player_nozzle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3111696875527854910
 Transform:
   m_ObjectHideFlags: 0

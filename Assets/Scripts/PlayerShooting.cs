@@ -11,7 +11,7 @@ public class PlayerShooting : MonoBehaviour
 
     [SerializeField] AudioSource audioSource;
 
-    [SerializeField] Animator animator = null;
+    [SerializeField] public Animator animator = null;
     private bool isShooting = false;
 
     private const string IS_SHOOTING = "IsShooting";
@@ -22,29 +22,8 @@ public class PlayerShooting : MonoBehaviour
         {
             isShooting = true;
             Shoot();
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            SwitchWeapon(1);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            SwitchWeapon(2);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            SwitchWeapon(3);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha4))
-        {
-            SwitchWeapon(4);
-        }
+        }   
         animator.SetBool(IS_SHOOTING, isShooting);
-    }
-
-    void SwitchWeapon(int weaponNum) 
-    {
-        Debug.Log("Switching weapon to weapon " + weaponNum);
     }
 
     void Shoot()
