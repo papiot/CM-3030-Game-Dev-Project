@@ -23,6 +23,14 @@ public class PlayerShooting : MonoBehaviour
             isShooting = true;
             Shoot();
         }
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            Debug.Log("Pressing ONE");
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            Debug.Log("Pressing TWO");
+        }
         animator.SetBool(IS_SHOOTING, isShooting);
     }
 
