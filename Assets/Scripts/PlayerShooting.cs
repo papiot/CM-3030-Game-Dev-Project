@@ -25,13 +25,26 @@ public class PlayerShooting : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            Debug.Log("Pressing ONE");
+            SwitchWeapon(1);
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            Debug.Log("Pressing TWO");
+            SwitchWeapon(2);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            SwitchWeapon(3);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            SwitchWeapon(4);
         }
         animator.SetBool(IS_SHOOTING, isShooting);
+    }
+
+    void SwitchWeapon(int weaponNum) 
+    {
+        Debug.Log("Switching weapon to weapon " + weaponNum);
     }
 
     void Shoot()
