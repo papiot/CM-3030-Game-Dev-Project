@@ -9140,7 +9140,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4046171719590546782, guid: db275e323e24b421ba45a0cfd9d7a573, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5605176861815927636, guid: db275e323e24b421ba45a0cfd9d7a573, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9189,6 +9189,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4046171719590546782, guid: db275e323e24b421ba45a0cfd9d7a573, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1212740359}
+    - targetCorrespondingSourceObject: {fileID: 4046171719590546782, guid: db275e323e24b421ba45a0cfd9d7a573, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1212740360}
   m_SourcePrefab: {fileID: 100100000, guid: db275e323e24b421ba45a0cfd9d7a573, type: 3}
 --- !u!1 &773489626
 GameObject:
@@ -10498,6 +10501,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d0aa7bd253ef04a4abeb2eaefd90c2bf, type: 3}
+--- !u!95 &876512156 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 123540096620650881, guid: db275e323e24b421ba45a0cfd9d7a573, type: 3}
+  m_PrefabInstance: {fileID: 769917141}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &883552097 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6481850127992039730, guid: d0aa7bd253ef04a4abeb2eaefd90c2bf, type: 3}
@@ -14038,6 +14046,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1212740360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1212740355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 889ab65811bd04cce994bc696c592f77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 225646630}
+  speed: 12
+  attackRange: 3
+  jumpForce: 10
+  animator: {fileID: 876512156}
 --- !u!4 &1225521043 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7805947077847536761, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
