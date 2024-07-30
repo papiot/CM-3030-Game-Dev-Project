@@ -2713,7 +2713,7 @@ MonoBehaviour:
   disableGravity: 0
   resetVel: 1
   dashCd: 2
-  dashKey: 304
+  dashKey: 324
 --- !u!82 &225646632
 AudioSource:
   m_ObjectHideFlags: 0
@@ -9764,75 +9764,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 775680562}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1001 &779343195
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4046171719590546782, guid: db275e323e24b421ba45a0cfd9d7a573, type: 3}
-      propertyPath: m_Name
-      value: Level 1 Boss
-      objectReference: {fileID: 0}
-    - target: {fileID: 4046171719590546782, guid: db275e323e24b421ba45a0cfd9d7a573, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5605176861815927636, guid: db275e323e24b421ba45a0cfd9d7a573, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 24.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 5605176861815927636, guid: db275e323e24b421ba45a0cfd9d7a573, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5605176861815927636, guid: db275e323e24b421ba45a0cfd9d7a573, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -10.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 5605176861815927636, guid: db275e323e24b421ba45a0cfd9d7a573, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 5605176861815927636, guid: db275e323e24b421ba45a0cfd9d7a573, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5605176861815927636, guid: db275e323e24b421ba45a0cfd9d7a573, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 5605176861815927636, guid: db275e323e24b421ba45a0cfd9d7a573, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5605176861815927636, guid: db275e323e24b421ba45a0cfd9d7a573, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5605176861815927636, guid: db275e323e24b421ba45a0cfd9d7a573, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -90
-      objectReference: {fileID: 0}
-    - target: {fileID: 5605176861815927636, guid: db275e323e24b421ba45a0cfd9d7a573, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8333399125717968193, guid: db275e323e24b421ba45a0cfd9d7a573, type: 3}
-      propertyPath: finishPoint
-      value: 
-      objectReference: {fileID: 547576330}
-    - target: {fileID: 8333399125717968193, guid: db275e323e24b421ba45a0cfd9d7a573, type: 3}
-      propertyPath: levelClearAudio
-      value: 
-      objectReference: {fileID: 1650384602}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: db275e323e24b421ba45a0cfd9d7a573, type: 3}
 --- !u!1001 &781822922
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25993,4 +25924,3 @@ SceneRoots:
   - {fileID: 1472386335}
   - {fileID: 500859030}
   - {fileID: 769917141}
-  - {fileID: 779343195}

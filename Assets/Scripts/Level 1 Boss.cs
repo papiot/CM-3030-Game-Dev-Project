@@ -131,23 +131,28 @@ public class Level1Boss : MonoBehaviour
     {
         if (isVulnerable)
         {
-            bossDamageEffect.Play();
-            health -= damage;
-            bossSFX.PlayOneShot(bossHitClip);
-            Debug.Log("Boss Hit. Boss Health: " + health);
+            BossDamageSequence(damage);
         }
 
-        if(health <= 0)
+        if (health <= 0)
         {
-            bossSFX.PlayOneShot(bossIntroDeathClip);
             BossDeathSequence();
         }
     }
 
+    private void BossDamageSequence(int damage)
+    {
+        bossDamageEffect.Play();
+        health -= damage;
+        bossSFX.PlayOneShot(bossHitClip);
+        Debug.Log("Boss Hit. Boss Health: " + health);
+    }
+
     private void BossDeathSequence()
     {
-        animator.SetBool("Is_Dead", true);
-        bossAgent.isStopped = true;
+        bossSFX.PlayOneShot(bossIntroDeathClip);
+        bossAgent.enabled = false;
+        animator.Play("Boss Dying");
         playAudio.Stop();
         levelClearAudio.Play();
         finishPoint.SetActive(true);
