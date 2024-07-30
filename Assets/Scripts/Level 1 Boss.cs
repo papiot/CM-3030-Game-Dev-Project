@@ -19,10 +19,11 @@ public class Level1Boss : MonoBehaviour
     private bool isPlayerInAttackRange;
     private bool isAttacked;
     [SerializeField] float attackCooldown = 4f;
-    private bool bossVulnerable = false;
 
     private float introTimer = 0f;
     private bool isRoaring = true;
+    public bool isIdle = false;
+    public bool isVulnerable = false;
 
     [SerializeField] int health = 30;
     [SerializeField] int damagePerHit = 1;
@@ -31,6 +32,13 @@ public class Level1Boss : MonoBehaviour
     [SerializeField] GameObject finishPoint;
     [SerializeField] AudioSource playAudio;
     [SerializeField] AudioSource levelClearAudio;
+    [SerializeField] ParticleSystem bossDamageEffect;
+    [SerializeField] ParticleSystem bossDeathEffect;
+
+    [SerializeField] AudioSource bossSFX;
+    [SerializeField] AudioClip bossIntroDeathClip;
+    [SerializeField] AudioClip bossHitClip;
+    [SerializeField] AudioClip bossAttackingClip;
 
     private Debugging_PlayerHealth playerHealth;
 
@@ -42,12 +50,15 @@ public class Level1Boss : MonoBehaviour
         if(animator == null) animator = GetComponentInChildren<Animator>();
 
         playerHealth = GameObject.Find("Player").GetComponent<Debugging_PlayerHealth>();
+
+        bossSFX.PlayOneShot(bossIntroDeathClip);
     }
 
     void Update()
     {
         isPlayerInDetectionRange = Physics.CheckSphere(transform.position, detectionRange, playerMask);
         isPlayerInAttackRange = Physics.CheckSphere(transform.position, attackRange, playerMask);
+
         if (isPlayerInDetectionRange)
         {
             RunTowardsPlayer();
@@ -64,11 +75,11 @@ public class Level1Boss : MonoBehaviour
             animator.SetBool("Is_Roaring", false);
         }
 
-        if (bossVulnerable)
+        if (isVulnerable)
         {
             vulnerableMesh.SetActive(true);
         }
-        else if (!bossVulnerable)
+        else if (!isVulnerable)
         {
             vulnerableMesh.SetActive(false);
         }
@@ -76,7 +87,7 @@ public class Level1Boss : MonoBehaviour
 
     private void RunTowardsPlayer()
     {
-        if (!isRoaring && !isAttacked)
+        if (!isRoaring && !isAttacked && !isIdle)
         {
             if (bossAgent.isActiveAndEnabled && !isAttacked)
             {
@@ -97,44 +108,52 @@ public class Level1Boss : MonoBehaviour
 
             if (attackChoice < 5)
             {
+                bossSFX.PlayOneShot(bossAttackingClip);
                 animator.SetTrigger("Attack1"); // Trigger the jump attack animation
             }
             else
             {
+                bossSFX.PlayOneShot(bossAttackingClip);
                 animator.SetTrigger("Attack2"); // Trigger the punching animation
             }
 
             isAttacked = true;
-            bossVulnerable = true;
             Invoke("ResetAttack", attackCooldown);
         }
     }
 
     private void ResetAttack()
     {
-        bossVulnerable = false;
         isAttacked = false;
     }
 
     public void TakeDamage(int damage)
     {
-        if (bossVulnerable)
+        if (isVulnerable)
         {
+            bossDamageEffect.Play();
             health -= damage;
-            Debug.Log("Boss Hit");
+            bossSFX.PlayOneShot(bossHitClip);
+            Debug.Log("Boss Hit. Boss Health: " + health);
         }
 
         if(health <= 0)
         {
-            animator.SetBool("Is_Dead", true);
-            bossAgent.isStopped = true;
-            playAudio.Stop();
-            levelClearAudio.Play();
-            finishPoint.SetActive(true);
-            //Invoke("DestroyEnemy", 10f);
+            bossSFX.PlayOneShot(bossIntroDeathClip);
+            BossDeathSequence();
         }
     }
 
+    private void BossDeathSequence()
+    {
+        animator.SetBool("Is_Dead", true);
+        bossAgent.isStopped = true;
+        playAudio.Stop();
+        levelClearAudio.Play();
+        finishPoint.SetActive(true);
+        bossDeathEffect.Play();
+        Invoke("DestroyEnemy", 7f);
+    }
 
     private void DestroyEnemy()
     {
