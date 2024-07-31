@@ -18,6 +18,7 @@ public class Level1Boss : MonoBehaviour
     private bool isPlayerInDetectionRange;
     private bool isPlayerInAttackRange;
     private bool isAttacked;
+    private bool isDead = false;
     [SerializeField] float attackCooldown = 4f;
 
     private float introTimer = 0f;
@@ -87,7 +88,7 @@ public class Level1Boss : MonoBehaviour
 
     private void RunTowardsPlayer()
     {
-        if (!isRoaring && !isAttacked && !isIdle)
+        if (!isRoaring && !isAttacked && !isIdle && !isDead)
         {
             if (bossAgent.isActiveAndEnabled && !isAttacked)
             {
@@ -98,8 +99,11 @@ public class Level1Boss : MonoBehaviour
 
     private void CheckForAttack()
     {
-        bossAgent.SetDestination(transform.position);
-        transform.LookAt(player);
+        if (!isDead)
+        {
+            bossAgent.SetDestination(transform.position);
+            transform.LookAt(player);
+        }
         // Randomly choose between Jump Attack and Punch/Swipe Attack
         int attackChoice = Random.Range(0, 10); // Randomly choose between 0 and 9
 
@@ -150,6 +154,7 @@ public class Level1Boss : MonoBehaviour
 
     private void BossDeathSequence()
     {
+        isDead = true;
         bossSFX.PlayOneShot(bossIntroDeathClip);
         bossAgent.enabled = false;
         animator.Play("Boss Dying");
@@ -168,7 +173,7 @@ public class Level1Boss : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "Player")
+        if(other.gameObject.tag == "Player" && !isIdle && !isDead)
         {
             // Handle damage to the player here
             playerHealth.health -= 2;
