@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - bullet
+  - enemy damage
   layers:
   - Default
   - TransparentFX
@@ -15,7 +16,7 @@ TagManager:
   - Coin
   - Floor
   - Enemy
-  - 
+  - Bullet
   - 
   - 
   - 

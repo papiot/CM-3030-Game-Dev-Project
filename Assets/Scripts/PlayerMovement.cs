@@ -25,7 +25,7 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] private float dashForce = 12f;
     [SerializeField] private float dashDuration = 0.5f;
     [SerializeField] private bool useCameraForward = true;
-    [SerializeField] private bool allowAllDirections = true;
+//    [SerializeField] private bool allowAllDirections = true;
     [SerializeField] private bool disableGravity = false;
     [SerializeField] private bool resetVel = true;
     [SerializeField] private float dashCd = 2f;
