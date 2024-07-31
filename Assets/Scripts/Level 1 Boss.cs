@@ -22,6 +22,7 @@ public class Level1Boss : MonoBehaviour
 
     private float introTimer = 0f;
     private bool isRoaring = true;
+    private bool isDead = false;
     public bool isIdle = false;
     public bool isVulnerable = false;
 
@@ -87,7 +88,7 @@ public class Level1Boss : MonoBehaviour
 
     private void RunTowardsPlayer()
     {
-        if (!isRoaring && !isAttacked && !isIdle)
+        if (!isRoaring && !isAttacked && !isIdle && !isDead)
         {
             if (bossAgent.isActiveAndEnabled && !isAttacked)
             {
@@ -98,8 +99,11 @@ public class Level1Boss : MonoBehaviour
 
     private void CheckForAttack()
     {
-        bossAgent.SetDestination(transform.position);
-        transform.LookAt(player);
+        if (!isDead)
+        {
+            bossAgent.SetDestination(transform.position);
+            transform.LookAt(player);
+        }
         // Randomly choose between Jump Attack and Punch/Swipe Attack
         int attackChoice = Random.Range(0, 10); // Randomly choose between 0 and 9
 
@@ -136,6 +140,7 @@ public class Level1Boss : MonoBehaviour
 
         if (health <= 0)
         {
+            isDead = true;
             BossDeathSequence();
         }
     }
@@ -154,8 +159,6 @@ public class Level1Boss : MonoBehaviour
         bossAgent.enabled = false;
         animator.Play("Boss Dying");
         playAudio.Stop();
-        levelClearAudio.Play();
-        finishPoint.SetActive(true);
         bossDeathEffect.Play();
         Invoke("DestroyEnemy", 7f);
     }
@@ -163,6 +166,8 @@ public class Level1Boss : MonoBehaviour
     private void DestroyEnemy()
     {
         Destroy(gameObject);
+        finishPoint.SetActive(true);
+        levelClearAudio.Play();
 
     }
 
