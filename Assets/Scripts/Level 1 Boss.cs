@@ -154,16 +154,16 @@ public class Level1Boss : MonoBehaviour
         bossAgent.enabled = false;
         animator.Play("Boss Dying");
         playAudio.Stop();
-        levelClearAudio.Play();
-        finishPoint.SetActive(true);
+        //finishPoint.SetActive(true);
         bossDeathEffect.Play();
-        Invoke("DestroyEnemy", 7f);
+        Invoke("DestroyEnemy", 5f);
     }
 
     private void DestroyEnemy()
     {
         Destroy(gameObject);
-
+        finishPoint.SetActive(true);
+        levelClearAudio.Play();
     }
 
     private void OnTriggerEnter(Collider other)
