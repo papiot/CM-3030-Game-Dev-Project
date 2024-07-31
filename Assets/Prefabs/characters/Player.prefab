@@ -160,11 +160,10 @@ MonoBehaviour:
   dashForce: 12
   dashDuration: 0.5
   useCameraForward: 1
-  allowAllDirections: 1
   disableGravity: 0
   resetVel: 1
   dashCd: 2
-  dashKey: 304
+  dashKey: 324
 --- !u!82 &7919577525960238347
 AudioSource:
   m_ObjectHideFlags: 0
