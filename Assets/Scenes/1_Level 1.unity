@@ -18966,17 +18966,21 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 6939171096792838955, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7805947077847536761, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 130.2
+      value: 127.56
       objectReference: {fileID: 0}
     - target: {fileID: 7805947077847536761, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.25
+      value: -0.06
       objectReference: {fileID: 0}
     - target: {fileID: 7805947077847536761, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.77
+      value: 2.83
       objectReference: {fileID: 0}
     - target: {fileID: 7805947077847536761, guid: bc9f0b8d556312744a71679e00a45655, type: 3}
       propertyPath: m_LocalRotation.w
