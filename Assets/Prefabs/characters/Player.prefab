@@ -155,7 +155,7 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 128
-  moveForce: 4
+  moveForce: 5
   animator: {fileID: 7794415611388795825}
   dashForce: 12
   dashDuration: 0.5
