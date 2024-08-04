@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 5278770340227973028}
   - component: {fileID: 987472675679875512}
   - component: {fileID: 7919577525960238347}
+  - component: {fileID: 7330467284777571176}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -260,6 +261,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &7330467284777571176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 200080110098863216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7aad788ffc5e48f58eacedbe26d0d6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 30
 --- !u!1 &1449674387438241557
 GameObject:
   m_ObjectHideFlags: 0
@@ -320,14 +334,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2115000714565311997}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.0068794927, y: 0.005845129, z: -0.2884104, w: 0.95746434}
+  m_LocalRotation: {x: 0.014144212, y: 0.012728021, z: -0.3173727, w: 0.94811004}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.15, y: 0.3, z: 0.15}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3254319331703454030}
   m_Father: {fileID: 3345380310154973904}
-  m_LocalEulerAnglesHint: {x: -0.562, y: 0.869, z: -33.531}
+  m_LocalEulerAnglesHint: {x: 2, y: 0.869, z: -37}
 --- !u!33 &5709471471380365602
 MeshFilter:
   m_ObjectHideFlags: 0
