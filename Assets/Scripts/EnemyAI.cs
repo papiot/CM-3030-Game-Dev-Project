@@ -185,6 +185,7 @@ public class EnemyAI : MonoBehaviour
 
     private void DestroyEnemy()
     {
+        GameManager.Instance.AddEnemyKill(); // Notify GameManager of enemy death
         Destroy(gameObject);
         
     }
