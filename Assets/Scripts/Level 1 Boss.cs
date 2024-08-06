@@ -55,6 +55,7 @@ public class Level1Boss : MonoBehaviour
         playerHealth = GameObject.Find("Player").GetComponent<Debugging_PlayerHealth>();
 
         bossSFX.PlayOneShot(bossIntroDeathClip);
+        GameManager.Instance.ShowBossHealth(health); // Show boss health when boss appears
     }
 
     void Update()
@@ -156,6 +157,7 @@ public class Level1Boss : MonoBehaviour
     {
         bossDamageEffect.Play();
         health -= damage;
+        GameManager.Instance.UpdateBossHealth(health); // Update GameManager with new boss health
         bossSFX.PlayOneShot(bossHitClip);
         Debug.Log("Boss Hit. Boss Health: " + health);
     }
