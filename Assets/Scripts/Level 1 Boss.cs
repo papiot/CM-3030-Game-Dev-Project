@@ -18,7 +18,9 @@ public class Level1Boss : MonoBehaviour
     private bool isPlayerInDetectionRange;
     private bool isPlayerInAttackRange;
     private bool isAttacked;
+    private bool isHit;
     [SerializeField] float attackCooldown = 4f;
+    [SerializeField] float damageCooldown = 0.5f;
 
     private float introTimer = 0f;
     private bool isRoaring = true;
@@ -131,6 +133,11 @@ public class Level1Boss : MonoBehaviour
         isAttacked = false;
     }
 
+    private void ResetDamage()
+    {
+        isHit = false;
+    }
+
     public void TakeDamage(int damage)
     {
         if (isVulnerable)
@@ -185,8 +192,13 @@ public class Level1Boss : MonoBehaviour
     {
         if (collision.gameObject.tag == "bullet")
         {
-            TakeDamage(damagePerHit);
             Destroy(collision.gameObject);
+            if (!isHit)
+            {
+                isHit = true;
+                TakeDamage(damagePerHit);
+                Invoke("ResetDamage", damageCooldown);
+            }
         }
     }
 
