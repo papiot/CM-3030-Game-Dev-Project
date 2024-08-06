@@ -8,7 +8,7 @@ public class Debugging_PlayerHealth : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        GameManager.Instance.SetPlayerHealth(health); // Initialize the GameManager with the player's starting health
     }
 
     // Update is called once per frame
@@ -22,6 +22,7 @@ public class Debugging_PlayerHealth : MonoBehaviour
         if(collision.gameObject.tag =="enemy damage")
         {
             health -=1;
+            GameManager.Instance.SetPlayerHealth(health); // Notify GameManager of the new health value
             Destroy(collision.gameObject);
             Debug.Log("Player Health:" + health);
         }
