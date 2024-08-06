@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class SceneTransition : MonoBehaviour
 {
     private SceneTransition sceneManager;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +21,7 @@ public class SceneTransition : MonoBehaviour
 
         if (currentSceneIndex == totalSceneCount - 1)
         {
+            // Assuming 0 is the build index for the main menu or intro
             SceneManager.LoadSceneAsync(0);
         }
         else
@@ -56,6 +58,20 @@ public class SceneTransition : MonoBehaviour
             Time.timeScale = 1;
         }
         
+    }
+    public void StartCampaign()
+    {
+        SceneManager.LoadScene("1_Level 1"); // Load Level 1 for Start Campaign
+    }
+
+    public void LoadLevel1()
+    {
+        SceneManager.LoadScene("1_Level 1"); // Load Level 1 for Start Level 1
+    }
+
+    public void LoadLevel2()
+    {
+        SceneManager.LoadScene("2_Level 2"); // Load Level 1 for Start Level 2
     }
 
 }
