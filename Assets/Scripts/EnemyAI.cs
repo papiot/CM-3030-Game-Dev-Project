@@ -6,17 +6,18 @@ using UnityEngine.AI;
 public class EnemyAI : MonoBehaviour
 {
     private Transform player;
+    private Debugging_PlayerHealth playerHealth;
     [SerializeField] NavMeshAgent agent;
     [SerializeField] LayerMask playerMask;
     [SerializeField] LayerMask groundMask;
     public float health;
 
-    // enemy patroling
+    // enemy patrolling
     private Vector3 walkPoint;
     private bool walkPointSet;
     [SerializeField] float walkPointRange;
 
-    // enemy attaking
+    // enemy attacking
     [SerializeField] float detectionRange;
     [SerializeField] float attackRange;
     private bool isPlayerInDetectionRange;
@@ -25,13 +26,11 @@ public class EnemyAI : MonoBehaviour
 
     [SerializeField] float attackCooldown;
 
-
     [SerializeField] GameObject bulletPrefab;
     [SerializeField] Transform bulletOrigin; // Assign your rifle nozzle in the Inspector
     [SerializeField] float bulletSpeed; // Adjust the speed of the bullets
     [SerializeField] AudioSource audioSource;
     [SerializeField] int damagePerHit;
-
 
     [SerializeField] ParticleSystemRenderer healthIndicator;
     [SerializeField] Material threeHitMat;
@@ -44,42 +43,68 @@ public class EnemyAI : MonoBehaviour
     private const string IS_SHOOTING = "IsShooting";
     [SerializeField] private Animator animator = null;
 
-
     private void Awake()
     {
-        player = GameObject.Find("Player").transform;
-        agent = GetComponent<NavMeshAgent>();
+        player = GameObject.Find("Player")?.transform;
+        if (player == null)
+        {
+            Debug.LogError("Player GameObject not found. Make sure it is named 'Player'.");
+            return;
+        }
 
-        if (animator == null) animator = GetComponentInChildren<Animator>();
+        playerHealth = player.GetComponent<Debugging_PlayerHealth>();
+        if (playerHealth == null)
+        {
+            Debug.LogError("Debugging_PlayerHealth script not found on Player GameObject.");
+            return;
+        }
+
+        agent = GetComponent<NavMeshAgent>();
+        if (agent == null)
+        {
+            Debug.LogError("NavMeshAgent component not found on Enemy GameObject.");
+            return;
+        }
+
+        if (animator == null)
+        {
+            animator = GetComponentInChildren<Animator>();
+            if (animator == null)
+            {
+                Debug.LogError("Animator component not found on Enemy GameObject.");
+            }
+        }
     }
 
     void Update()
     {
+        if (player == null || playerHealth == null)
+        {
+            // If player or playerHealth is null, return early
+            return;
+        }
+
         isPlayerInDetectionRange = Physics.CheckSphere(transform.position, detectionRange, playerMask);
         isPlayerInAttackRange = Physics.CheckSphere(transform.position, attackRange, playerMask);
-
-        //Debug.Log("Detection Range: " + isPlayerInDetectionRange);  // for debuggig, comment out before build
-        // Debug.Log("Attack Range: " + isPlayerInAttackRange);       // for debugging comment out before build
 
         if (!isPlayerInDetectionRange && !isPlayerInAttackRange)
         {
             EnemyPatrol();
         }
-        if(isPlayerInDetectionRange)
+        if (isPlayerInDetectionRange && playerHealth.GetHealth() > 0)
         {
             ChasePlayer();
         }
-        if(isPlayerInAttackRange)
+        if (isPlayerInAttackRange && playerHealth.GetHealth() > 0)
         {
             AttackPlayer();
         }
 
-
-        if(health == 3)
+        if (health == 3)
         {
             healthIndicator.material = threeHitMat;
         }
-        else if(health == 2)
+        else if (health == 2)
         {
             healthIndicator.material = twoHitMat;
         }
@@ -104,7 +129,7 @@ public class EnemyAI : MonoBehaviour
         Vector3 distanceToWalkPoint = transform.position - walkPoint;
 
         //walkPoint reached
-        if(distanceToWalkPoint.magnitude < 1f)
+        if (distanceToWalkPoint.magnitude < 1f)
         {
             walkPointSet = false;
         }
@@ -117,11 +142,10 @@ public class EnemyAI : MonoBehaviour
 
         walkPoint = new Vector3(transform.position.x + randPointX, transform.position.y, transform.position.z + randPointZ);
 
-        if(Physics.Raycast(walkPoint, -transform.up, 2f, groundMask))
+        if (Physics.Raycast(walkPoint, -transform.up, 2f, groundMask))
         {
             walkPointSet = true;
         }
-
     }
 
     private void ChasePlayer()
@@ -131,7 +155,6 @@ public class EnemyAI : MonoBehaviour
             agent.SetDestination(player.position);
         }
     }
-
 
     void AttackPlayer()
     {
@@ -143,18 +166,12 @@ public class EnemyAI : MonoBehaviour
 
         if (!isAttacked && isPlayerInAttackRange)
         {
-            //for enemies that use Projectile Missiles --> MOVE TO DIFFERENT SCRIPT?
-            ///Attack code here
-            //Rigidbody rb = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
-            //rb.AddForce(transform.forward * 32f, ForceMode.Impulse);
-            //rb.AddForce(transform.up * 8f, ForceMode.Impulse);
-
             // Instantiate the bullet at the nozzle's position and rotation
             GameObject bullet = Instantiate(bulletPrefab);
             bullet.transform.SetPositionAndRotation(bulletOrigin.position, bulletOrigin.rotation);
 
             // Get the Rigidbody component of the bullet
-            // Set the bullet's velocity to move in the direction the player is facing then destory it after 5 seconds
+            // Set the bullet's velocity to move in the direction the player is facing then destroy it after 2 seconds
             audioSource.Play();
             bullet.GetComponent<Rigidbody>().velocity = bulletOrigin.forward * bulletSpeed;
             Destroy(bullet, 2);
@@ -162,7 +179,6 @@ public class EnemyAI : MonoBehaviour
             isAttacked = true;
             Invoke("ResetAttack", attackCooldown);
         }
-
     }
 
     private void ResetAttack()
@@ -175,7 +191,7 @@ public class EnemyAI : MonoBehaviour
         // Implement damage logic
         health -= damage;
 
-        if(health <= 0)
+        if (health <= 0)
         {
             deathParticles.Play();
             enemyDead.Play();
@@ -186,7 +202,15 @@ public class EnemyAI : MonoBehaviour
     private void DestroyEnemy()
     {
         Destroy(gameObject);
-        
+        if (GameManager.Instance != null)
+        {
+            Debug.Log("Updating GameManager with enemy kill");
+            GameManager.Instance.AddEnemyKill(); // Notify GameManager of enemy death
+        }
+        else
+        {
+            Debug.LogError("GameManager instance is null.");
+        }
     }
 
     // indicators for enemy AI detection range and attack range (for level design)
@@ -200,7 +224,7 @@ public class EnemyAI : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "bullet")
+        if (collision.gameObject.CompareTag("bullet"))
         {
             TakeDamage(damagePerHit);
             Destroy(collision.gameObject);
