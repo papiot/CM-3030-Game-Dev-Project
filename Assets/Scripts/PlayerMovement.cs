@@ -137,7 +137,6 @@ public class PlayerScript : MonoBehaviour
         if (other.gameObject.layer == 6)
         {
             gameScore += 1;
-            GameManager.Instance.AddCoin(); // Notify GameManager of coin collection
             GetComponent<AudioSource>().Play();
             Destroy(other.gameObject);
             Debug.Log("Game Score = " + gameScore);
