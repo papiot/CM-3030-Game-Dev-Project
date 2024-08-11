@@ -446,6 +446,7 @@ MonoBehaviour:
   detectionRange: 20
   attackRange: 2
   attackCooldown: 2
+  damageCooldown: 0.5
   isIdle: 0
   isVulnerable: 0
   health: 50
@@ -10188,6 +10189,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mutant
       objectReference: {fileID: 0}
+    - target: {fileID: 5613815499662603714, guid: 267f427dde0e340dcb90c13f02f8c188, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9bb307addd3f6420182643fcd10e0b30, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
