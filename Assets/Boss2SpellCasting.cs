@@ -9,8 +9,7 @@ public class Boss2SpellCasting : StateMachineBehaviour
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         boss = GameObject.Find("Level 2 Boss").GetComponent<Level2Boss>();
-
-        boss.isIdle = true;
+        boss.isSpellCasting = true;
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -22,7 +21,7 @@ public class Boss2SpellCasting : StateMachineBehaviour
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        boss.isIdle = false;
+        boss.isSpellCasting = false;
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()

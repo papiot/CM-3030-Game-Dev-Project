@@ -23,9 +23,10 @@ public class Level2Boss : MonoBehaviour
     [SerializeField] float damageCooldown = 0.5f;
 
     private float introTimer = 0f;
-    private bool isRoaring = true;
+    public bool isRoaring = true;
     private bool isDead = false;
     public bool isIdle = false;
+    public bool isSpellCasting = false;
     public bool isVulnerable = false;
 
     [SerializeField] int health = 30;
@@ -37,6 +38,7 @@ public class Level2Boss : MonoBehaviour
     [SerializeField] AudioSource levelClearAudio;
     [SerializeField] ParticleSystem bossDamageEffect;
     [SerializeField] ParticleSystem bossDeathEffect;
+    [SerializeField] ParticleSystem bossSpell;
 
     [SerializeField] AudioSource bossSFX;
     [SerializeField] AudioClip bossIntroDeathClip;
@@ -73,7 +75,7 @@ public class Level2Boss : MonoBehaviour
         }
 
         introTimer += Time.deltaTime;
-        if(introTimer >= 4f)
+        if (introTimer > 3)
         {
             isRoaring = false;
             animator.SetBool("Is_Roaring", false);
@@ -87,13 +89,22 @@ public class Level2Boss : MonoBehaviour
         {
             vulnerableMesh.SetActive(false);
         }
+
+        if (isSpellCasting)
+        {
+            bossSpell.Play();
+        }
+        else if (!isSpellCasting)
+        {
+            bossSpell.Stop();
+        }
     }
 
     private void RunTowardsPlayer()
     {
         if (!isRoaring && !isIdle && !isDead)
         {
-            if (bossAgent.isActiveAndEnabled)
+            if (bossAgent.isActiveAndEnabled && !isSpellCasting)
             {
                 bossAgent.SetDestination(player.position);
             }
@@ -104,7 +115,7 @@ public class Level2Boss : MonoBehaviour
     {
         if (!isDead)
         {
-            //bossAgent.SetDestination(transform.position);
+            bossAgent.SetDestination(transform.position);
             transform.LookAt(player);
         }
         // Randomly choose between Jump Attack and Punch/Swipe Attack
@@ -116,12 +127,12 @@ public class Level2Boss : MonoBehaviour
             if (attackChoice < 5)
             {
                 bossSFX.PlayOneShot(bossAttackingClip);
-                animator.SetTrigger("Attack1"); // Trigger the jump attack animation
+                animator.SetTrigger("Attack1"); // Trigger the flying kick attack animation
             }
             else
             {
                 bossSFX.PlayOneShot(bossAttackingClip);
-                animator.SetTrigger("Attack2"); // Trigger the punching animation
+                animator.SetTrigger("Attack2"); // Trigger the hurricane kick & spell cast animation
             }
 
             isAttacked = true;

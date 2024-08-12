@@ -9,6 +9,7 @@ public class Debugging_PlayerHealth : MonoBehaviour
     void Start()
     {
         GameManager.Instance.SetPlayerHealth(health); // Initialize the GameManager with the player's starting health
+
     }
 
     // Update is called once per frame
