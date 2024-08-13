@@ -9934,7 +9934,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 443c15296009248bf850c87f021ce017, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 3ae2382fbbc284134b1928aed1f3b410, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -13958,11 +13958,12 @@ ParticleSystem:
     serializedVersion: 2
     inside: 1
     outside: 0
-    enter: 0
+    enter: 2
     exit: 0
     colliderQueryMode: 0
     radiusScale: 1
-    primitives: []
+    primitives:
+    - {fileID: 0}
   SubModule:
     serializedVersion: 2
     enabled: 0
@@ -15192,10 +15193,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.23356003
-  m_Height: 0.9214941
+  m_Radius: 0.26569116
+  m_Height: 1.1575556
   m_Direction: 1
-  m_Center: {x: -0.024371788, y: 0.10142168, z: 0.05461133}
+  m_Center: {x: -0.024371788, y: 0.21945268, z: 0.022480214}
 --- !u!4 &2608824966931950890 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -1864740628597940677, guid: 05420f0e47cb54a26bb25828867530b1, type: 3}
@@ -15281,9 +15282,9 @@ CapsuleCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.31900954
-  m_Height: 0.73407125
+  m_Height: 0.68256146
   m_Direction: 1
-  m_Center: {x: -0.0021319662, y: 0.13296446, z: 0.05486633}
+  m_Center: {x: -0.0021319676, y: 0.107209824, z: 0.054866094}
 --- !u!4 &4221016995009331863 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8700783698680967558, guid: 05420f0e47cb54a26bb25828867530b1, type: 3}
