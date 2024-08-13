@@ -119,12 +119,12 @@ public class Level2Boss : MonoBehaviour
             transform.LookAt(player);
         }
         // Randomly choose between Jump Attack and Punch/Swipe Attack
-        int attackChoice = Random.Range(0, 10); // Randomly choose between 0 and 9
+        int attackChoice = Random.Range(1, 3); // Randomly choose between 1 and 2
 
         if (!isAttacked && isPlayerInAttackRange)
         {
 
-            if (attackChoice < 5)
+            if (attackChoice % 2 == 0)
             {
                 bossSFX.PlayOneShot(bossAttackingClip);
                 animator.SetTrigger("Attack1"); // Trigger the flying kick attack animation
@@ -196,7 +196,7 @@ public class Level2Boss : MonoBehaviour
         if(other.gameObject.tag == "Player")
         {
             // Handle damage to the player here
-            playerHealth.health -= 2;
+            playerHealth.health -= 3;
             Debug.Log("Player Hit. Player Health: " + playerHealth.health);
         }
     }
