@@ -178,7 +178,10 @@ public class EnemyAI : MonoBehaviour
         if(health <= 0)
         {
             deathParticles.Play();
-            enemyDead.Play();
+            if (!enemyDead.isPlaying)
+            {
+                enemyDead.Play();
+            }
             Invoke("DestroyEnemy", 0.5f);
         }
     }
