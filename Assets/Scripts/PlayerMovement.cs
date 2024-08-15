@@ -43,6 +43,7 @@ public class PlayerScript : MonoBehaviour
 
         // Set the groundMask to include the Floor layer
         groundMask = LayerMask.GetMask("Floor");
+       
     }
 
     void Update()
@@ -76,8 +77,8 @@ public class PlayerScript : MonoBehaviour
         {
             dashCdTimer -= Time.deltaTime;
         }
+        
     }
-
     private void MovePlayer()
     {
         if (!isDashing)

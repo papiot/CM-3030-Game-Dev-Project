@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44192502, g: 0.49088073, b: 0.5708293, a: 1}
+  m_IndirectSpecularColor: {r: 0.44192517, g: 0.49088097, b: 0.57082975, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -28714,6 +28714,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 987472675679875512, guid: 0b6e906c8558a45fea29e76f66176057, type: 3}
+      propertyPath: weapon1
+      value: 
+      objectReference: {fileID: 6663045189894496498, guid: 4ff7cab2a062d4cceadf47d08a7629fa, type: 3}
+    - target: {fileID: 987472675679875512, guid: 0b6e906c8558a45fea29e76f66176057, type: 3}
+      propertyPath: weapon2
+      value: 
+      objectReference: {fileID: 6663045189894496498, guid: f2d00ef861c4e4796804cdf46e2f22b4, type: 3}
+    - target: {fileID: 987472675679875512, guid: 0b6e906c8558a45fea29e76f66176057, type: 3}
+      propertyPath: weapon3
+      value: 
+      objectReference: {fileID: 6663045189894496498, guid: 3fc579ff4655441909651267b4cb55ed, type: 3}
+    - target: {fileID: 987472675679875512, guid: 0b6e906c8558a45fea29e76f66176057, type: 3}
+      propertyPath: weapon4
+      value: 
+      objectReference: {fileID: 6663045189894496498, guid: 3372b7070809e4b3f8ca794e83619e84, type: 3}
     - target: {fileID: 6303515172388369352, guid: 0b6e906c8558a45fea29e76f66176057, type: 3}
       propertyPath: m_LocalPosition.x
       value: 14.19

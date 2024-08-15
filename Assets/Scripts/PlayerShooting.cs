@@ -9,9 +9,13 @@ public class PlayerShooting : MonoBehaviour
     [SerializeField] Transform bulletOrigin; // Assign your rifle nozzle in the Inspector
     [SerializeField] float bulletSpeed = 20f; // Adjust the speed of the bullets
 
+    [SerializeField] int numBulletMulti = 1; // the number of bullets for multi-shooting. 1 is for regular shooting
+
+    public float spreadAngle = 5f;
+
     [SerializeField] AudioSource audioSource;
 
-    [SerializeField] Animator animator = null;
+    [SerializeField] public Animator animator = null;
     private bool isShooting = false;
 
     private const string IS_SHOOTING = "IsShooting";
@@ -22,24 +26,36 @@ public class PlayerShooting : MonoBehaviour
         {
             isShooting = true;
             Shoot();
-        }
+        }   
         animator.SetBool(IS_SHOOTING, isShooting);
     }
 
     void Shoot()
     {
         isShooting = false;
-        // Instantiate the bullet at the nozzle's position and rotation
-        GameObject bullet = Instantiate(bulletPrefab);
 
-        bullet.transform.SetPositionAndRotation(bulletOrigin.position, bulletOrigin.rotation);
+        for (int i = 0; i < numBulletMulti; i++) {
+            // Instantiate the bullet at the nozzle's position and rotation
+            GameObject bullet = Instantiate(bulletPrefab);
+            
+            // Get the Rigidbody component of the bullet
+            // Set the bullet's velocity to move in the direction the player is facing
+            bullet.transform.SetPositionAndRotation(bulletOrigin.position, bulletOrigin.rotation);
 
-        // Get the Rigidbody component of the bullet
-        // Set the bullet's velocity to move in the direction the player is facing
+            // Apply random spread to the bullet's rotation
+            float randomSpread = Random.Range(-spreadAngle, spreadAngle);
+            Quaternion spreadRotation = Quaternion.Euler(0, randomSpread, 0);
+            bullet.transform.rotation = bullet.transform.rotation * spreadRotation;
+
+            bullet.GetComponent<Rigidbody>().velocity = bulletOrigin.forward * bulletSpeed;
+
+            Destroy(bullet, 2);
+        }
+        
         audioSource.Play();
-        bullet.GetComponent<Rigidbody>().velocity = bulletOrigin.forward * bulletSpeed;
+        //bullet.GetComponent<Rigidbody>().velocity = bulletOrigin.forward * bulletSpeed;
 
-        Destroy(bullet, 2);
+        
     }
 }
 
