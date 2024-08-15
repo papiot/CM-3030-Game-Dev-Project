@@ -33,22 +33,26 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] int damagePerHit;
 
 
-    [SerializeField] ParticleSystemRenderer healthIndicator;
+    // [SerializeField] ParticleSystemRenderer healthIndicator;
     [SerializeField] Material threeHitMat;
     [SerializeField] Material twoHitMat;
     [SerializeField] Material oneHitMat;
     [SerializeField] AudioSource enemyDead;
     [SerializeField] ParticleSystem deathParticles;
+    [SerializeField] MeshRenderer healthIndicator;
 
     private bool isShooting = false;
     private const string IS_SHOOTING = "IsShooting";
     [SerializeField] private Animator animator = null;
+    float agentSpeed;
+
 
 
     private void Awake()
     {
         player = GameObject.Find("Player").transform;
         agent = GetComponent<NavMeshAgent>();
+        agentSpeed = agent.speed;
 
         if (animator == null) animator = GetComponentInChildren<Animator>();
     }
@@ -61,18 +65,21 @@ public class EnemyAI : MonoBehaviour
         //Debug.Log("Detection Range: " + isPlayerInDetectionRange);  // for debuggig, comment out before build
         // Debug.Log("Attack Range: " + isPlayerInAttackRange);       // for debugging comment out before build
 
-        if (!isPlayerInDetectionRange && !isPlayerInAttackRange)
-        {
-            EnemyPatrol();
-        }
-        if(isPlayerInDetectionRange)
-        {
-            ChasePlayer();
-        }
-        if(isPlayerInAttackRange)
+
+        if (isPlayerInAttackRange)
         {
             AttackPlayer();
         }
+        else if (isPlayerInDetectionRange)
+        {
+            ChasePlayer();
+        }
+        else
+        {
+            EnemyPatrol();
+        }
+
+
 
 
         if(health == 3)
@@ -91,6 +98,12 @@ public class EnemyAI : MonoBehaviour
 
     private void EnemyPatrol()
     {
+        // animation controller booleans
+        animator.SetBool("IsChasing", false);
+        animator.SetBool("IsShooting", false);
+
+        agent.speed = agentSpeed;
+
         if (!walkPointSet)
         {
             SearchForWalkPoint();
@@ -128,6 +141,11 @@ public class EnemyAI : MonoBehaviour
     {
         if (agent.isActiveAndEnabled)
         {
+            // animation controller booleans
+            animator.SetBool("IsChasing", true);
+            animator.SetBool("IsShooting", false);
+
+            agent.speed = agentSpeed * 2.5f;
             agent.SetDestination(player.position);
         }
     }
@@ -135,6 +153,10 @@ public class EnemyAI : MonoBehaviour
 
     void AttackPlayer()
     {
+        // animation controller booleans
+        animator.SetBool("IsChasing", false);
+        animator.SetBool("IsShooting", true);
+
         //stop chasing & look at player
         agent.SetDestination(transform.position);
         transform.LookAt(player);
@@ -178,7 +200,10 @@ public class EnemyAI : MonoBehaviour
         if(health <= 0)
         {
             deathParticles.Play();
-            enemyDead.Play();
+            if (!enemyDead.isPlaying)
+            {
+                enemyDead.Play();
+            }
             Invoke("DestroyEnemy", 0.5f);
         }
     }
