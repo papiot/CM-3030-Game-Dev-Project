@@ -158,7 +158,10 @@ public class Level1Boss : MonoBehaviour
         bossDamageEffect.Play();
         health -= damage;
         GameManager.Instance.UpdateBossHealth(health); // Update GameManager with new boss health
-        bossSFX.PlayOneShot(bossHitClip);
+        if (!bossSFX.isPlaying)
+        {
+            bossSFX.PlayOneShot(bossHitClip);
+        }
         Debug.Log("Boss Hit. Boss Health: " + health);
     }
 
