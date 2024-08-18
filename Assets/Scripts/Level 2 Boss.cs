@@ -45,7 +45,7 @@ public class Level2Boss : MonoBehaviour
     [SerializeField] AudioClip bossHitClip;
     [SerializeField] AudioClip bossAttackingClip;
 
-    private Debugging_PlayerHealth playerHealth;
+    private PlayerHealthLogic playerHealth;
 
     private void Awake()
     {
@@ -54,7 +54,7 @@ public class Level2Boss : MonoBehaviour
         if (bossAgent == null) bossAgent = GetComponent<NavMeshAgent>();
         if(animator == null) animator = GetComponentInChildren<Animator>();
 
-        playerHealth = GameObject.Find("Player").GetComponent<Debugging_PlayerHealth>();
+        playerHealth = GameObject.Find("Player").GetComponent<PlayerHealthLogic>();
 
         bossSFX.PlayOneShot(bossIntroDeathClip);
         GameManager.Instance.ShowBossHealth(health); // Show boss health when boss appears

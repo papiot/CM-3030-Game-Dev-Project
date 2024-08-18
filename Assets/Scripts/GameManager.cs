@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
 
     private int enemiesKilled = 0;
     private int coinsCollected = 0;
-    private int playerHealth = 100;
+    private int playerHealth = 50;
     private int livesLeft = 3;
     private int bossHealth = 100;
 
@@ -67,6 +67,11 @@ public class GameManager : MonoBehaviour
     {
         livesLeft = lives;
         UpdateLivesLeftUI();
+    }
+
+    public int GetLivesLeft()
+    {
+        return livesLeft;
     }
 
     public void ShowBossHealth(int health)

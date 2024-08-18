@@ -43,7 +43,7 @@ public class Level1Boss : MonoBehaviour
     [SerializeField] AudioClip bossHitClip;
     [SerializeField] AudioClip bossAttackingClip;
 
-    private Debugging_PlayerHealth playerHealth;
+    private PlayerHealthLogic playerHealth;
 
     private void Awake()
     {
@@ -52,7 +52,7 @@ public class Level1Boss : MonoBehaviour
         if (bossAgent == null) bossAgent = GetComponent<NavMeshAgent>();
         if(animator == null) animator = GetComponentInChildren<Animator>();
 
-        playerHealth = GameObject.Find("Player").GetComponent<Debugging_PlayerHealth>();
+        playerHealth = GameObject.Find("Player").GetComponent<PlayerHealthLogic>();
 
         bossSFX.PlayOneShot(bossIntroDeathClip);
         GameManager.Instance.ShowBossHealth(health); // Show boss health when boss appears
@@ -188,7 +188,15 @@ public class Level1Boss : MonoBehaviour
         if(other.gameObject.tag == "Player")
         {
             // Handle damage to the player here
-            playerHealth.health -= 2;
+            playerHealth.TakeDamage(2);
+            if (playerHealth.health >= 0)
+            {
+                GameManager.Instance.SetPlayerHealth(playerHealth.health); // Notify GameManager of the new health value
+            }
+            else if (playerHealth.health < 0)
+            {
+                GameManager.Instance.SetPlayerHealth(0); // Notify GameManager of the new health value
+            }
             Debug.Log("Player Hit. Player Health: " + playerHealth.health);
         }
     }

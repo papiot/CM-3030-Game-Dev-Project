@@ -41,6 +41,9 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] ParticleSystem deathParticles;
     [SerializeField] MeshRenderer healthIndicator;
 
+    //private bool isPlayerDead = false;
+    private PlayerHealthLogic playerHealth;
+
     private bool isShooting = false;
     private const string IS_SHOOTING = "IsShooting";
     [SerializeField] private Animator animator = null;
@@ -51,6 +54,7 @@ public class EnemyAI : MonoBehaviour
     private void Awake()
     {
         player = GameObject.Find("Player").transform;
+        playerHealth = GameObject.Find("Player").GetComponent<PlayerHealthLogic>();
         agent = GetComponent<NavMeshAgent>();
         agentSpeed = agent.speed;
 
@@ -163,14 +167,8 @@ public class EnemyAI : MonoBehaviour
         isShooting = true;
         animator.SetBool(IS_SHOOTING, isShooting);
 
-        if (!isAttacked && isPlayerInAttackRange)
+        if (!isAttacked && isPlayerInAttackRange && playerHealth.health > 0)
         {
-            //for enemies that use Projectile Missiles --> MOVE TO DIFFERENT SCRIPT?
-            ///Attack code here
-            //Rigidbody rb = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
-            //rb.AddForce(transform.forward * 32f, ForceMode.Impulse);
-            //rb.AddForce(transform.up * 8f, ForceMode.Impulse);
-
             // Instantiate the bullet at the nozzle's position and rotation
             GameObject bullet = Instantiate(bulletPrefab);
             bullet.transform.SetPositionAndRotation(bulletOrigin.position, bulletOrigin.rotation);

@@ -274,7 +274,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7aad788ffc5e48f58eacedbe26d0d6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 30
+  health: 50
+  lives: 3
+  respawnDelay: 3
+  collisionCooldown: 2
 --- !u!114 &1630197752631941970
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -449,6 +452,8 @@ MonoBehaviour:
   bulletPrefab: {fileID: 7784406810738980843, guid: 2a19d8a37d6bd44b7bdf5b2a2cc8d711, type: 3}
   bulletOrigin: {fileID: 3254319331703454030}
   bulletSpeed: 20
+  numBulletMulti: 1
+  spreadAngle: 5
   audioSource: {fileID: 3631323480355945312}
   animator: {fileID: 7794415611388795825}
 --- !u!82 &3631323480355945312
