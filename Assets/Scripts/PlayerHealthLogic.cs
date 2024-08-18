@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 
-public class Debugging_PlayerHealth : MonoBehaviour
+public class PlayerHealthLogic : MonoBehaviour
 {
     [SerializeField] public int health = 50; // Set initial health
     [SerializeField] public int lives = 3;
@@ -53,7 +53,6 @@ public class Debugging_PlayerHealth : MonoBehaviour
         if (!particlesCollided)
         {
             TakeDamage(5);
-
 
             if (GameManager.Instance != null)
             {
