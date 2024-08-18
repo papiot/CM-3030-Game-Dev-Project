@@ -41,7 +41,7 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] ParticleSystem deathParticles;
     [SerializeField] MeshRenderer healthIndicator;
 
-    private bool isPlayerDead = false;
+    //private bool isPlayerDead = false;
     private Debugging_PlayerHealth playerHealth;
 
     private bool isShooting = false;

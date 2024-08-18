@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
 
     private int enemiesKilled = 0;
     private int coinsCollected = 0;
-    private int playerHealth = 30;
+    private int playerHealth = 50;
     private int livesLeft = 3;
     private int bossHealth = 100;
 

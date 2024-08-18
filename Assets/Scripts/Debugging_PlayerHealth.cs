@@ -6,13 +6,13 @@ using UnityEngine.SceneManagement;
 
 public class Debugging_PlayerHealth : MonoBehaviour
 {
-    [SerializeField] public int health = 30; // Set initial health
+    [SerializeField] public int health = 50; // Set initial health
     [SerializeField] public int lives = 3;
     [SerializeField] private float respawnDelay = 3f; // Delay before the player respawns
     private bool isDead = false; // flag for player death
     private int initialHealth;
-    private bool particlesCollided = false;
-    private float collisionCooldown = 2f;
+    private bool particlesCollided = false; // flag for paricle collision
+    [SerializeField] private float collisionCooldown = 2f;
 
     void Start()
     {
