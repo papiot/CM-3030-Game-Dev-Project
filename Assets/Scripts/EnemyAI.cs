@@ -41,6 +41,9 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] ParticleSystem deathParticles;
     [SerializeField] MeshRenderer healthIndicator;
 
+    private bool isPlayerDead = false;
+    private Debugging_PlayerHealth playerHealth;
+
     private bool isShooting = false;
     private const string IS_SHOOTING = "IsShooting";
     [SerializeField] private Animator animator = null;
@@ -51,6 +54,7 @@ public class EnemyAI : MonoBehaviour
     private void Awake()
     {
         player = GameObject.Find("Player").transform;
+        playerHealth = GameObject.Find("Player").GetComponent<Debugging_PlayerHealth>();
         agent = GetComponent<NavMeshAgent>();
         agentSpeed = agent.speed;
 
@@ -163,7 +167,7 @@ public class EnemyAI : MonoBehaviour
         isShooting = true;
         animator.SetBool(IS_SHOOTING, isShooting);
 
-        if (!isAttacked && isPlayerInAttackRange)
+        if (!isAttacked && isPlayerInAttackRange && playerHealth.health > 0)
         {
             //for enemies that use Projectile Missiles --> MOVE TO DIFFERENT SCRIPT?
             ///Attack code here

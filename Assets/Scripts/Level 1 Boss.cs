@@ -188,7 +188,8 @@ public class Level1Boss : MonoBehaviour
         if(other.gameObject.tag == "Player")
         {
             // Handle damage to the player here
-            playerHealth.health -= 2;
+            playerHealth.TakeDamage(2);
+            GameManager.Instance.SetPlayerHealth(playerHealth.health);
             Debug.Log("Player Hit. Player Health: " + playerHealth.health);
         }
     }
