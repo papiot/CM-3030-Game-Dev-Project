@@ -35,27 +35,26 @@ public class PlayerShootingLaser : MonoBehaviour
     {
         // Set the starting point of the laser
         lineRenderer.SetPosition(0, laserOrigin.position);
-
+        // Debug.DrawRay(laserOrigin.position, laserOrigin.forward * laserRange, Color.red);
         // Perform the raycast
         RaycastHit hit;
-        if (Physics.Raycast(laserOrigin.position, laserOrigin.forward, out hit, laserRange, hitLayers))
+        if (Physics.Raycast(laserOrigin.position, laserOrigin.forward, out hit, laserRange))
         {
-            // If the raycast hits something, set the end point of the laser to the hit point
-            lineRenderer.SetPosition(1, hit.point);
+                
+            // lineRenderer.SetPosition(1, hit.point);
+            lineRenderer.SetPosition(1, laserOrigin.position + laserOrigin.forward * laserRange);
 
-            // Apply damage or effects to the hit object if it has a health component or similar
-            // Health targetHealth = hit.collider.GetComponent<Health>();
-            // if (targetHealth != null)
-            // {
-            //     targetHealth.TakeDamage(laserDamage);
-            // }
+            // Check if the hit object has an Enemy component
+            EnemyAI enemy = hit.collider.GetComponent<EnemyAI>();
+            if (enemy != null)
+            {
+                enemy.TakeDamage(2); // Apply damage to the enemy
+            }
         }
         else
         {
             // If the raycast doesn't hit anything, set the end point of the laser to the max range
             lineRenderer.SetPosition(1, laserOrigin.position + laserOrigin.forward * laserRange);
         }
-
-        // Optionally, you can play a laser sound or trigger a particle effect here
     }
 }

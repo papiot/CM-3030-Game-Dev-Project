@@ -31,6 +31,7 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] float bulletSpeed; // Adjust the speed of the bullets
     [SerializeField] AudioSource audioSource;
     [SerializeField] int damagePerHit;
+    [SerializeField] int damagePerHitLaser;
 
 
     // [SerializeField] ParticleSystemRenderer healthIndicator;
