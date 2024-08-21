@@ -8,7 +8,7 @@ public class PlayerHealthLogic : MonoBehaviour
 {
     [SerializeField] public int health = 50; // Set initial health
     [SerializeField] public int lives = 3;
-    [SerializeField] private float respawnDelay = 3f; // Delay before the player respawns
+    [SerializeField] private float respawnDelay = 2f; // Delay before the player respawns
     private bool isDead = false; // flag for player death
     private int initialHealth;
     private bool particlesCollided = false; // flag for paricle collision
