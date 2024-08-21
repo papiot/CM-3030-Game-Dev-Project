@@ -1,11 +1,7 @@
 using UnityEngine;
 
-public class PlayerShootingBalistic : MonoBehaviour
+public class PlayerShootingAreaDamage : MonoBehaviour
 {
-    public GameObject bulletPrefab;       // The bullet prefab
-    public Transform bulletOrigin;        // The origin point for shooting bullets
-    public float bulletForce = 20f;       // The forward force applied to the bullet
-    public float verticalForce = 15f;     // The upward force applied to the bullet
     public float shootingInterval = 1f;   // Time interval between shots
 
     private bool isShooting = false;
@@ -44,22 +40,4 @@ public class PlayerShootingBalistic : MonoBehaviour
             boss2.TakeDamage(3);
         }
     }
-
-    // void Shoot()
-    // {
-    //     // Instantiate the bullet prefab at the bullet origin's position and rotation
-    //     // GameObject bullet = Instantiate(bulletPrefab, bulletOrigin.position, bulletOrigin.rotation);
-
-    //     // // Get the Rigidbody component of the bullet
-    //     // Rigidbody bulletRigidbody = bullet.GetComponent<Rigidbody>();
-
-    //     // // Calculate the force vector with upward and forward components
-    //     // Vector3 force = bulletOrigin.forward * bulletForce + bulletOrigin.up * verticalForce;
-
-    //     // // Apply the calculated force to the bullet
-    //     // bulletRigidbody.AddForce(force, ForceMode.Impulse);
-
-    //     // Check if the hit object has an Enemy component
-    
-    // }
 }

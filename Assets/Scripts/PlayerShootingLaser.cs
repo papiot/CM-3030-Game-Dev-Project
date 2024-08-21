@@ -46,9 +46,21 @@ public class PlayerShootingLaser : MonoBehaviour
 
             // Check if the hit object has an Enemy component
             EnemyAI enemy = hit.collider.GetComponent<EnemyAI>();
+            Level1Boss boss1 = hit.collider.GetComponent<Level1Boss>();
+            Level2Boss boss2 = hit.collider.GetComponent<Level2Boss>();
             if (enemy != null)
             {
                 enemy.TakeDamage(2); // Apply damage to the enemy
+            }
+
+            if (boss1 != null)
+            {
+                boss1.TakeDamage(2);
+            }
+
+            if (boss2 != null)
+            {
+                boss2.TakeDamage(2);
             }
         }
         else
