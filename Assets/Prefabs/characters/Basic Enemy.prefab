@@ -5189,6 +5189,7 @@ MonoBehaviour:
   bulletSpeed: 12
   audioSource: {fileID: 4366655777662585421}
   damagePerHit: 1
+  damagePerHitLaser: 0
   threeHitMat: {fileID: 2100000, guid: 89b232780af694cf2acaa38b73b8d126, type: 2}
   twoHitMat: {fileID: 2100000, guid: c505200218c6d46539b5c5649dbe4a03, type: 2}
   oneHitMat: {fileID: 2100000, guid: f31e14c897ca44d87866509aab7d9a7c, type: 2}
@@ -5333,10 +5334,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5080274
-  m_Height: 2.0550656
+  m_Radius: 0.4420029
+  m_Height: 3.0417824
   m_Direction: 1
-  m_Center: {x: 0.0057392716, y: 0, z: -0.00000011920929}
+  m_Center: {x: 0.016743382, y: 0.75061035, z: -0.00000011920929}
 --- !u!82 &8163279649129676196
 AudioSource:
   m_ObjectHideFlags: 0
