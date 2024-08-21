@@ -62,10 +62,10 @@ public class WeaponManagement : MonoBehaviour {
         {
             SwitchWeapon(3);
         }
-        if (Input.GetKeyDown(KeyCode.Alpha4))
-        {
-            SwitchWeapon(4);
-        }
+        // if (Input.GetKeyDown(KeyCode.Alpha4))
+        // {
+        //     SwitchWeapon(4);
+        // }
     }
 
     void SwitchWeapon(int weaponNum) 
@@ -106,13 +106,13 @@ public class WeaponManagement : MonoBehaviour {
             activeWeapon.transform.rotation = currWeaponTransform.rotation;
             activeWeapon.SetActive(true);
         }
-        if (weaponNum == 4) {
-            activeWeapon = Instantiate(weapon4);
-            activeWeapon.transform.SetParent(leftHandTransform); 
-            activeWeapon.transform.position = currWeaponTransform.position;
-            activeWeapon.transform.rotation = currWeaponTransform.rotation;
-            activeWeapon.SetActive(true);
-        }
+        // if (weaponNum == 4) {
+        //     activeWeapon = Instantiate(weapon4);
+        //     activeWeapon.transform.SetParent(leftHandTransform); 
+        //     activeWeapon.transform.position = currWeaponTransform.position;
+        //     activeWeapon.transform.rotation = currWeaponTransform.rotation;
+        //     activeWeapon.SetActive(true);
+        // }
 
         PlayerShooting playerShooting = activeWeapon.GetComponent<PlayerShooting>();
         if (playerShooting != null)
@@ -130,9 +130,9 @@ public class WeaponManagement : MonoBehaviour {
         if (currentWeapon == 3) {
             weapon3.SetActive(false);
         }
-        if (currentWeapon == 4) {
-            weapon4.SetActive(false);
-        }
+        // if (currentWeapon == 4) {
+        //     weapon4.SetActive(false);
+        // }
 
         currentWeapon = weaponNum;
     }
