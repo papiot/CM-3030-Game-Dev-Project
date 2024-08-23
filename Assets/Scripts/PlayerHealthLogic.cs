@@ -125,11 +125,17 @@ public class PlayerHealthLogic : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
+    //private void GameOver()
+    //{
+    //    Debug.Log("Game Over. No lives left.");
+    //    // Implement your Game Over logic here, such as loading a Game Over screen
+    //    SceneManager.LoadSceneAsync(0);
+    //    GameManager.Instance.SetLivesLeft(3);
+    //}
+
     private void GameOver()
     {
         Debug.Log("Game Over. No lives left.");
-        // Implement your Game Over logic here, such as loading a Game Over screen
-        SceneManager.LoadSceneAsync(0);
-        GameManager.Instance.SetLivesLeft(3);
+        GameManager.Instance.ShowTransitionScreen(true); // Show transition screen when player dies with no lives left
     }
 }

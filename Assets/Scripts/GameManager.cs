@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -14,11 +15,19 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI livesLeftText;
     [SerializeField] private TextMeshProUGUI bossHealthText;
 
+    [SerializeField] private GameObject transitionScreenCanvas;
+    [SerializeField] private TextMeshProUGUI transitionEnemiesKilledText;
+    [SerializeField] private TextMeshProUGUI transitionCoinsCollectedText;
+    [SerializeField] private TextMeshProUGUI transitionLivesLeftText;
+    [SerializeField] private Button proceedButton;
+    [SerializeField] private Button returnToMainMenuButton;
+
     private int enemiesKilled = 0;
     private int coinsCollected = 0;
     private int playerHealth = 50;
     private int livesLeft = 3;
     private int bossHealth = 100;
+    private bool isCampaignMode = false;
 
     void Awake()
     {
@@ -42,6 +51,8 @@ public class GameManager : MonoBehaviour
         UpdatePlayerHealthUI();
         UpdateLivesLeftUI();
         bossHealthText.gameObject.SetActive(false); // Hide boss health by default
+
+        transitionScreenCanvas.SetActive(false); // Hide transition screen by default
     }
 
     // Methods to update game stats and UI
@@ -67,6 +78,11 @@ public class GameManager : MonoBehaviour
     {
         livesLeft = lives;
         UpdateLivesLeftUI();
+    }
+
+    public void SetCampaignMode(bool isCampaign)
+    {
+        isCampaignMode = isCampaign;
     }
 
     public int GetLivesLeft()
@@ -116,5 +132,48 @@ public class GameManager : MonoBehaviour
     public void UpdateBossHealthUI()
     {
         bossHealthText.text = "Boss: " + bossHealth;
+    }
+
+    public void ShowTransitionScreen(bool playerDied)
+    {
+        transitionScreenCanvas.SetActive(true);
+        transitionEnemiesKilledText.text = "Enemies Killed: " + enemiesKilled;
+        transitionCoinsCollectedText.text = "Coins Collected: " + coinsCollected;
+        transitionLivesLeftText.text = "Lives Left: " + livesLeft;
+
+        if (playerDied)
+        {
+            proceedButton.gameObject.SetActive(false);
+            returnToMainMenuButton.gameObject.SetActive(true);
+            returnToMainMenuButton.GetComponentInChildren<TextMeshProUGUI>().text = "Return to Main Menu";
+        }
+        else if (isCampaignMode)
+        {
+            proceedButton.gameObject.SetActive(true);
+            proceedButton.GetComponentInChildren<TextMeshProUGUI>().text = "Proceed to Next Level";
+            proceedButton.onClick.AddListener(LoadNextLevel);
+
+            returnToMainMenuButton.gameObject.SetActive(true);
+            returnToMainMenuButton.GetComponentInChildren<TextMeshProUGUI>().text = "Quit to Main Menu";
+            returnToMainMenuButton.onClick.AddListener(ReturnToMainMenu);
+        }
+        else
+        {
+            proceedButton.gameObject.SetActive(false);
+            returnToMainMenuButton.gameObject.SetActive(true);
+            returnToMainMenuButton.GetComponentInChildren<TextMeshProUGUI>().text = "Return to Main Menu";
+            returnToMainMenuButton.onClick.AddListener(ReturnToMainMenu);
+        }
+    }
+
+    private void LoadNextLevel()
+    {
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(currentSceneIndex + 1);
+    }
+
+    private void ReturnToMainMenu()
+    {
+        SceneManager.LoadScene("0_IntroScreen");
     }
 }
