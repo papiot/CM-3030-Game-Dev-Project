@@ -61,6 +61,7 @@ public class SceneTransition : MonoBehaviour
     }
     public void StartCampaign()
     {
+        GameManager.Instance.SetCampaignMode(true);
         SceneManager.LoadScene("1_Level 1"); // Load Level 1 for Start Campaign
     }
 

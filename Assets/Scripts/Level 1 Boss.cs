@@ -183,6 +183,7 @@ public class Level1Boss : MonoBehaviour
         finishPoint.SetActive(true);
         levelClearAudio.Play();
 
+        GameManager.Instance.ShowTransitionScreen(false); // Show transition screen when the boss dies
     }
 
     private void OnTriggerEnter(Collider other)

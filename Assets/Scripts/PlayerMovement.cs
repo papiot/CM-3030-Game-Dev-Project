@@ -140,6 +140,7 @@ public class PlayerScript : MonoBehaviour
             gameScore += 1;
             GetComponent<AudioSource>().Play();
             Destroy(other.gameObject);
+            GameManager.Instance.AddCoin();
             Debug.Log("Game Score = " + gameScore);
         }
     }
