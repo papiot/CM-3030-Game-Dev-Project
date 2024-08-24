@@ -55,6 +55,7 @@ public class GameManager : MonoBehaviour
         transitionScreenCanvas.SetActive(false); // Hide transition screen by default
     }
 
+
     // Methods to update game stats and UI
     public void AddEnemyKill()
     {
@@ -75,10 +76,10 @@ public class GameManager : MonoBehaviour
     }
 
     public void SetLivesLeft(int lives)
-    {
-        livesLeft = lives;
-        UpdateLivesLeftUI();
-    }
+{
+    this.livesLeft = lives;
+    UpdateLivesLeftUI();
+}
 
     public void SetCampaignMode(bool isCampaign)
     {
@@ -151,10 +152,12 @@ public class GameManager : MonoBehaviour
         {
             proceedButton.gameObject.SetActive(true);
             proceedButton.GetComponentInChildren<TextMeshProUGUI>().text = "Proceed to Next Level";
+            proceedButton.onClick.RemoveAllListeners(); // Clear any previous listeners
             proceedButton.onClick.AddListener(LoadNextLevel);
 
             returnToMainMenuButton.gameObject.SetActive(true);
             returnToMainMenuButton.GetComponentInChildren<TextMeshProUGUI>().text = "Quit to Main Menu";
+            returnToMainMenuButton.onClick.RemoveAllListeners(); // Clear any previous listeners
             returnToMainMenuButton.onClick.AddListener(ReturnToMainMenu);
         }
         else
@@ -162,18 +165,21 @@ public class GameManager : MonoBehaviour
             proceedButton.gameObject.SetActive(false);
             returnToMainMenuButton.gameObject.SetActive(true);
             returnToMainMenuButton.GetComponentInChildren<TextMeshProUGUI>().text = "Return to Main Menu";
+            returnToMainMenuButton.onClick.RemoveAllListeners(); // Clear any previous listeners
             returnToMainMenuButton.onClick.AddListener(ReturnToMainMenu);
         }
     }
 
     private void LoadNextLevel()
     {
+        transitionScreenCanvas.SetActive(false); // Hide transition screen
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currentSceneIndex + 1);
     }
 
     private void ReturnToMainMenu()
     {
+        transitionScreenCanvas.SetActive(false); // Hide transition screen
         SceneManager.LoadScene("0_IntroScreen");
     }
 }
