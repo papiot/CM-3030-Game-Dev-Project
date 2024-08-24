@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI playerHealthText;
     [SerializeField] private TextMeshProUGUI livesLeftText;
     [SerializeField] private TextMeshProUGUI bossHealthText;
+    [SerializeField] private TextMeshProUGUI weaponText;
 
     [SerializeField] private GameObject transitionScreenCanvas;
     [SerializeField] private TextMeshProUGUI transitionEnemiesKilledText;
@@ -135,7 +136,13 @@ public class GameManager : MonoBehaviour
     {
         bossHealthText.text = "Boss: " + bossHealth;
     }
-
+    public void UpdateWeaponText(string weaponName)
+    {
+        if (weaponText != null)
+        {
+            weaponText.text = "Weapon: " + weaponName;
+        }
+    }
     public void ShowTransitionScreen(bool playerDied)
     {
         transitionScreenCanvas.SetActive(true);

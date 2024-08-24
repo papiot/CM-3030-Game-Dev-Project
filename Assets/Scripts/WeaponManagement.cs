@@ -1,16 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public class WeaponManagement : MonoBehaviour {
+using TMPro;
+
+public class WeaponManagement : MonoBehaviour
+{
     public GameObject weapon1;
     public GameObject weapon2;
     public GameObject weapon3;
-    public GameObject weapon4;
 
     public int currentWeapon = 1;
 
     private Rigidbody myRigidBody;
-
     [SerializeField] private Animator animator = null;
 
     private GameObject nozzleParent;
@@ -20,17 +21,17 @@ public class WeaponManagement : MonoBehaviour {
     private GameObject leftHandObject;
     private Transform leftHandTransform;
 
-    void Start() {
+    void Start()
+    {
         myRigidBody = GetComponent<Rigidbody>();
         if (animator == null) animator = GetComponent<Animator>();
-         // Find the "nozzle" GameObject by name
-        nozzleParent = GameObject.Find(GameObject.Find("player_nozzle").transform.parent.gameObject.name);
 
+        // Find the "nozzle" GameObject by name
+        nozzleParent = GameObject.Find(GameObject.Find("player_nozzle").transform.parent.gameObject.name);
         GameObject currWeapon = GameObject.Find("player_nozzle");
         currWeaponTransform = currWeapon.transform;
 
         Debug.Log("Nozzle Parent: " + nozzleParent);
-
         Debug.Log("Parent Name: " + GameObject.Find("player_nozzle").transform.parent.gameObject.name);
 
         leftHandTransform = transform.Find("Exo Gray/mixamorig:Hips/mixamorig:Spine/mixamorig:Spine1/mixamorig:Spine2/mixamorig:LeftShoulder/mixamorig:LeftArm/mixamorig:LeftForeArm/mixamorig:LeftHand");
@@ -38,16 +39,22 @@ public class WeaponManagement : MonoBehaviour {
         if (leftHandTransform != null)
         {
             leftHandObject = leftHandTransform.gameObject;
-        } else {
+        }
+        else
+        {
             Debug.LogError("mixamorig:LeftHand not found in this GameObject's hierarchy.");
         }
+
+        // Initialize the weapon text
+        UpdateWeaponText(currentWeapon);
     }
 
-    void Update() {
+    void Update()
+    {
         HandleInput();
     }
 
-     private void HandleInput()
+    private void HandleInput()
     {
         // Handle weapon switching
         if (Input.GetKeyDown(KeyCode.Alpha1))
@@ -62,78 +69,73 @@ public class WeaponManagement : MonoBehaviour {
         {
             SwitchWeapon(3);
         }
-        // if (Input.GetKeyDown(KeyCode.Alpha4))
-        // {
-        //     SwitchWeapon(4);
-        // }
     }
 
-    void SwitchWeapon(int weaponNum) 
+    void SwitchWeapon(int weaponNum)
     {
         Debug.Log("Switching weapon to weapon " + weaponNum);
         GameObject currWeapon = GameObject.Find("player_nozzle");
-        if (currWeapon != null) 
+        if (currWeapon != null)
         {
             currWeapon.SetActive(false);
         }
 
-        if (activeWeapon) {
+        if (activeWeapon)
+        {
             activeWeapon.SetActive(false);
         }
 
-        
-        
-        
-        if (weaponNum == 1) {
-            activeWeapon = Instantiate(weapon1);
-            activeWeapon.transform.SetParent(leftHandTransform); 
-            activeWeapon.transform.position = currWeaponTransform.position;
-            activeWeapon.transform.rotation = currWeaponTransform.rotation;
-            activeWeapon.SetActive(true);
+        switch (weaponNum)
+        {
+            case 1:
+                activeWeapon = Instantiate(weapon1);
+                break;
+            case 2:
+                activeWeapon = Instantiate(weapon2);
+                break;
+            case 3:
+                activeWeapon = Instantiate(weapon3);
+                break;
         }
-        if (weaponNum == 2) {
-            activeWeapon = Instantiate(weapon2);
+
+        if (activeWeapon != null)
+        {
             activeWeapon.transform.SetParent(leftHandTransform);
             activeWeapon.transform.position = currWeaponTransform.position;
             activeWeapon.transform.rotation = currWeaponTransform.rotation;
             activeWeapon.SetActive(true);
-            
-        }
-        if (weaponNum == 3) {
-            activeWeapon = Instantiate(weapon3);
-            activeWeapon.transform.SetParent(leftHandTransform); 
-            activeWeapon.transform.position = currWeaponTransform.position;
-            activeWeapon.transform.rotation = currWeaponTransform.rotation;
-            activeWeapon.SetActive(true);
-        }
-        // if (weaponNum == 4) {
-        //     activeWeapon = Instantiate(weapon4);
-        //     activeWeapon.transform.SetParent(leftHandTransform); 
-        //     activeWeapon.transform.position = currWeaponTransform.position;
-        //     activeWeapon.transform.rotation = currWeaponTransform.rotation;
-        //     activeWeapon.SetActive(true);
-        // }
 
-        PlayerShooting playerShooting = activeWeapon.GetComponent<PlayerShooting>();
-        if (playerShooting != null)
-        {
-            playerShooting.animator = animator; 
+            PlayerShooting playerShooting = activeWeapon.GetComponent<PlayerShooting>();
+            if (playerShooting != null)
+            {
+                playerShooting.animator = animator;
+            }
         }
-        
-        if (currentWeapon == 1) {
-            // Destroy(weapon1);
-            weapon1.SetActive(false);
-        }
-        if (currentWeapon == 2) {
-            weapon2.SetActive(false);
-        }
-        if (currentWeapon == 3) {
-            weapon3.SetActive(false);
-        }
-        // if (currentWeapon == 4) {
-        //     weapon4.SetActive(false);
-        // }
+
+        // Update the weapon text on the screen
+        UpdateWeaponText(weaponNum);
 
         currentWeapon = weaponNum;
+    }
+
+    private void UpdateWeaponText(int weaponNum)
+    {
+        string weaponName = "Unknown";
+
+        switch (weaponNum)
+        {
+            case 1:
+                weaponName = "Weapon 1";
+                break;
+            case 2:
+                weaponName = "Weapon 2";
+                break;
+            case 3:
+                weaponName = "Weapon 3";
+                break;
+        }
+
+        // Update the weapon text via GameManager
+        GameManager.Instance.UpdateWeaponText(weaponName);
     }
 }
