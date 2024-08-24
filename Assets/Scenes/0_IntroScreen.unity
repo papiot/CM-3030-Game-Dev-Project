@@ -14868,15 +14868,19 @@ MonoBehaviour:
 
 
     -
-    SpaceBar to dash away from enemy bullets
+    Use number keys 1,2,3 to change weapons
 
 
-    - Reach the end of the Level and
-    defeat the Boss to progress to next stage
+    - SpaceBar to dash away from enemy
+    bullets
 
 
-    - Press the ESC key on your keyboard
-    to Pause or Quit the game at anytime.'
+    - Reach the end of the Level and defeat the Boss to progress to
+    next stage
+
+
+    - Press the ESC key on your keyboard to Pause or Quit the game
+    at anytime.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 66356b2ae6160421e96a2feea5f47826, type: 2}
   m_sharedMaterial: {fileID: 5618213916048856016, guid: 66356b2ae6160421e96a2feea5f47826, type: 2}
@@ -18853,7 +18857,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &906903178
 MonoBehaviour:
   m_ObjectHideFlags: 0
