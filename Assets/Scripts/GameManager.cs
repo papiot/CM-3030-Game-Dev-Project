@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI transitionEnemiesKilledText;
     [SerializeField] private TextMeshProUGUI transitionCoinsCollectedText;
     [SerializeField] private TextMeshProUGUI transitionLivesLeftText;
+    [SerializeField] private TextMeshProUGUI levelStatusText;
     [SerializeField] private Button proceedButton;
     [SerializeField] private Button returnToMainMenuButton;
 
@@ -144,13 +145,17 @@ public class GameManager : MonoBehaviour
 
         if (playerDied)
         {
-            proceedButton.gameObject.SetActive(false);
+            levelStatusText.text = "Level Failed"; // Set the level status text
+            proceedButton.gameObject.SetActive(false); // Hide the proceed button
             returnToMainMenuButton.gameObject.SetActive(true);
             returnToMainMenuButton.GetComponentInChildren<TextMeshProUGUI>().text = "Return to Main Menu";
+            returnToMainMenuButton.onClick.RemoveAllListeners(); // Clear any previous listeners
+            returnToMainMenuButton.onClick.AddListener(ReturnToMainMenu);
         }
         else if (isCampaignMode)
         {
-            proceedButton.gameObject.SetActive(true);
+            levelStatusText.text = "Level Complete"; // Set the level status text
+            proceedButton.gameObject.SetActive(true); // Show the proceed button
             proceedButton.GetComponentInChildren<TextMeshProUGUI>().text = "Proceed to Next Level";
             proceedButton.onClick.RemoveAllListeners(); // Clear any previous listeners
             proceedButton.onClick.AddListener(LoadNextLevel);
@@ -162,7 +167,8 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            proceedButton.gameObject.SetActive(false);
+            levelStatusText.text = "Level Complete"; // Set the level status text
+            proceedButton.gameObject.SetActive(false); // Hide the proceed button
             returnToMainMenuButton.gameObject.SetActive(true);
             returnToMainMenuButton.GetComponentInChildren<TextMeshProUGUI>().text = "Return to Main Menu";
             returnToMainMenuButton.onClick.RemoveAllListeners(); // Clear any previous listeners

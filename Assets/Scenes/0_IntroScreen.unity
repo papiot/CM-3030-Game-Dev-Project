@@ -4204,7 +4204,7 @@ GameObject:
   - component: {fileID: 209693881}
   - component: {fileID: 209693880}
   m_Layer: 5
-  m_Name: LevelCompleteText
+  m_Name: LevelStatusText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36538,6 +36538,7 @@ MonoBehaviour:
   transitionEnemiesKilledText: {fileID: 318472947}
   transitionCoinsCollectedText: {fileID: 1075341926}
   transitionLivesLeftText: {fileID: 1665722683}
+  levelStatusText: {fileID: 209693880}
   proceedButton: {fileID: 1680824000}
   returnToMainMenuButton: {fileID: 781298778}
 --- !u!1001 &1898410555
