@@ -10,6 +10,9 @@ public class PlayerShootingLaser : MonoBehaviour
 
     private bool isShooting = false;
      [SerializeField] public Animator animator = null;
+    [SerializeField] AudioSource laserSFX;
+    [SerializeField] AudioSource laserHit;
+    [SerializeField] AudioClip laserHitClip;
 
     private const string IS_SHOOTING = "IsShooting";
 
@@ -22,12 +25,14 @@ public class PlayerShootingLaser : MonoBehaviour
     {
         if (Input.GetMouseButton(0)) 
         {
+            laserSFX.enabled = true;
             lineRenderer.enabled = true;  // Show the laser beam
             ShootLaser();                 // Update the laser beam position
         }
         else
         {
             lineRenderer.enabled = false; // Hide the laser beam when the button is released
+            laserSFX.enabled = false;
         }
     }
 
@@ -44,6 +49,7 @@ public class PlayerShootingLaser : MonoBehaviour
             // lineRenderer.SetPosition(1, hit.point);
             lineRenderer.SetPosition(1, laserOrigin.position + laserOrigin.forward * laserRange);
 
+
             // Check if the hit object has an Enemy component
             EnemyAI enemy = hit.collider.GetComponent<EnemyAI>();
             Level1Boss boss1 = hit.collider.GetComponent<Level1Boss>();
@@ -51,16 +57,28 @@ public class PlayerShootingLaser : MonoBehaviour
             if (enemy != null)
             {
                 enemy.TakeDamage(2); // Apply damage to the enemy
+                if (!laserHit.isPlaying)
+                {
+                    laserHit.PlayOneShot(laserHitClip);
+                }
             }
 
             if (boss1 != null)
             {
                 boss1.TakeDamage(2);
+                if (!laserHit.isPlaying && boss1.isVulnerable)
+                {
+                    laserHit.PlayOneShot(laserHitClip);
+                }
             }
 
             if (boss2 != null)
             {
                 boss2.TakeDamage(2);
+                if (!laserHit.isPlaying && boss2.isVulnerable)
+                {
+                    laserHit.PlayOneShot(laserHitClip);
+                }
             }
         }
         else
