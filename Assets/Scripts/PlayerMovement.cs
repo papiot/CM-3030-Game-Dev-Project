@@ -106,10 +106,13 @@ public class PlayerScript : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, groundMask))
         {
-            Vector3 targetPosition = hit.point;
-            Vector3 direction = (targetPosition - transform.position).normalized;
-            direction.y = 0; // Keep the player upright
-            transform.forward = direction; // Rotate player to face the direction
+            if (!playerHealth.isDead)
+            {
+                Vector3 targetPosition = hit.point;
+                Vector3 direction = (targetPosition - transform.position).normalized;
+                direction.y = 0; // Keep the player upright
+                transform.forward = direction; // Rotate player to face the direction
+            }
         }
     }
 
