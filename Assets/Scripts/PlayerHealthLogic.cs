@@ -9,16 +9,19 @@ public class PlayerHealthLogic : MonoBehaviour
     [SerializeField] public int health = 50; // Set initial health
     [SerializeField] public int lives = 3;
     [SerializeField] private float respawnDelay = 2f; // Delay before the player respawns
-    private bool isDead = false; // flag for player death
+    public bool isDead = false; // flag for player death
     private int initialHealth;
     private bool particlesCollided = false; // flag for paricle collision
     [SerializeField] private float collisionCooldown = 2f;
+    [SerializeField] private Animator animator = null;
+    [SerializeField] private ParticleSystem playerInjured;
 
     void Start()
     {
         initialHealth = health;
         lives = GameManager.Instance.GetLivesLeft(); // Get lives from GameManager at the start
         GameManager.Instance.SetPlayerHealth(health);
+        if (animator == null) animator = GetComponent<Animator>();
         //Debug.Log("Player Health initialized: " + health);
     }
 
@@ -83,6 +86,8 @@ public class PlayerHealthLogic : MonoBehaviour
         {
             health -= damage;
             Debug.Log("Player Health: " + health);
+            animator.SetTrigger("IsHit");
+            playerInjured.Play();
 
             if (health <= 0)
             {
@@ -96,6 +101,7 @@ public class PlayerHealthLogic : MonoBehaviour
         if (!isDead)
         {
             isDead = true;
+            animator.Play("Death");
             lives--;
 
             Debug.Log("Player Died. Lives remaining: " + lives);

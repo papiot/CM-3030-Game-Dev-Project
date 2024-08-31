@@ -1,72 +1,12 @@
 fileFormatVersion: 2
-guid: 52b85eeddf6a74eae9daa254e0255ca9
+guid: 0fb64756bbb314314832a6e4ee5e9dd6
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Body_MAT
-    second: {fileID: 2100000, guid: b5b1b94ca6e5a4c42ac2bbad88f6f70b, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Brows_MAT
-    second: {fileID: 2100000, guid: cc585930c3b144238a6f4b3ad51e6da4, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Exo_MAT
-    second: {fileID: 2100000, guid: 28191442c5921452d9d5662108d5ae4e, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Eye_MAT
-    second: {fileID: 2100000, guid: 64d11b0ec931c4b94a72022d8fb3ed58, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Eye_Spec_MAT
-    second: {fileID: 2100000, guid: d024e6d0cb57544ad8b8dfb5c2e679c3, type: 2}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: BODY_diffuse
-    second: {fileID: 2800000, guid: 6f2d4e655cf1746b29eb18fd61d65bf3, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: BODY_normal
-    second: {fileID: 2800000, guid: e04db0a10f44545d28630e9f5670909d, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: BODY_specular
-    second: {fileID: 2800000, guid: 459079012034d49a4aef5aa1dbcdfb86, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: BROW_diffuse
-    second: {fileID: 2800000, guid: 6610e9a14757447a391ff4bcc6c85cb4, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: EXO_diffuse
-    second: {fileID: 2800000, guid: 0ff6c05e8019641029162f7ed93079d7, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: EXO_normal
-    second: {fileID: 2800000, guid: eb23a90a3ed2544838d0856d10f8199f, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: EXO_specular
-    second: {fileID: 2800000, guid: 74f0c11efa54c4a29952be17b19f76a8, type: 3}
+  externalObjects: {}
   materials:
     materialImportMode: 2
-    materialName: 2
+    materialName: 0
     materialSearch: 1
     materialLocation: 1
   animations:
@@ -137,9 +77,7 @@ ModelImporter:
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
-  referencedClips:
-  - d4c2f2e6ff6ab47cda520ec669c2925f
-  - 0fb64756bbb314314832a6e4ee5e9dd6
+  referencedClips: []
   importAnimation: 1
   humanDescription:
     serializedVersion: 3
