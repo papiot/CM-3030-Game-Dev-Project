@@ -9,6 +9,7 @@ public class PlayerScript : MonoBehaviour
 
     private float jumpForce = 7f;
     private bool isJumping = false;
+    private const string IS_JUMPING = "IsJumping";
 
     private float horInput;
     private float verInput;
@@ -35,9 +36,12 @@ public class PlayerScript : MonoBehaviour
     private float dashCdTimer;
     private Vector3 delayedForceToApply;
 
+    private PlayerHealthLogic playerHealth;
+
     void Start()
     {
         myRigidBody = GetComponent<Rigidbody>();
+        playerHealth = GetComponent<PlayerHealthLogic>();
         if (animator == null) animator = GetComponent<Animator>();
         gameScore = 0;
 
@@ -63,12 +67,13 @@ public class PlayerScript : MonoBehaviour
         horInput = Input.GetAxis("Horizontal");
         verInput = Input.GetAxis("Vertical");
 
-        if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
+        if (Input.GetKeyDown(KeyCode.Space) && IsGrounded() && !playerHealth.isDead)
         {
             isJumping = true;
+            animator.SetBool(IS_JUMPING, isJumping);
         }
 
-        if (Input.GetKeyDown(dashKey))
+        if (Input.GetKeyDown(dashKey) && !playerHealth.isDead)
         {
             Dash();
         }
@@ -81,11 +86,17 @@ public class PlayerScript : MonoBehaviour
     }
     private void MovePlayer()
     {
-        if (!isDashing)
+        if (!isDashing && !playerHealth.isDead)
         {
             Vector3 moveDir = new Vector3(horInput * moveForce, myRigidBody.velocity.y, verInput * moveForce);
             myRigidBody.velocity = moveDir;
-            isWalking = horInput != 0 || verInput != 0;
+            bool isMoving = horInput != 0 || verInput != 0;
+
+            if (isMoving && IsGrounded())
+            {
+                isWalking = true;
+            }
+
             animator.SetBool(IS_WALKING, isWalking);
         }
     }
@@ -104,11 +115,12 @@ public class PlayerScript : MonoBehaviour
 
     private void HandleJump()
     {
-        if (isJumping)
+        if (isJumping && !playerHealth.isDead)
         {
             isWalking = false;
             myRigidBody.AddForce(Vector3.up * jumpForce, ForceMode.VelocityChange);
             isJumping = false;
+            animator.SetBool(IS_JUMPING, isJumping);
         }
     }
 
