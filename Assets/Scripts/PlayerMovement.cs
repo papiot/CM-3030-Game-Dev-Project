@@ -99,6 +99,10 @@ public class PlayerScript : MonoBehaviour
             {
                 isWalking = true;
             }
+            else
+            {
+                isWalking = false;
+            }
 
             animator.SetBool(IS_WALKING, isWalking);
         }
