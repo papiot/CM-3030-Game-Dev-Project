@@ -64,7 +64,7 @@ public class GameManager : MonoBehaviour
     // This method is called whenever a new scene is loaded
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        // Check if the current scene is a gameplay scene (e.g., "1_Level 1", "2_Level 2", etc.)
+        // Check if the current scene is a gameplay scene
         if (scene.name.StartsWith("1_Level") || scene.name.StartsWith("2_Level"))
         {
             // Show the ScoreBoardPanel
@@ -134,9 +134,9 @@ public class GameManager : MonoBehaviour
 
     public void ResetBossHealth()
     {
-        bossHealth = 100; // Or whatever the default health should be
+        bossHealth = 100;
         UpdateBossHealthUI();
-        HideBossHealth(); // Ensure it's hidden when the boss is not visible
+        HideBossHealth();
     }
 
     public void ResetEnemiesKilled()
