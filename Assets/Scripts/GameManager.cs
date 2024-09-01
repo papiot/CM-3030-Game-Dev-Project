@@ -134,7 +134,7 @@ public class GameManager : MonoBehaviour
 
     public void ResetBossHealth()
     {
-        bossHealth = 100; 
+        bossHealth = 100; // Or whatever the default health should be
         UpdateBossHealthUI();
         HideBossHealth(); // Ensure it's hidden when the boss is not visible
     }
@@ -192,6 +192,8 @@ public class GameManager : MonoBehaviour
         transitionCoinsCollectedText.text = "Coins Collected: " + coinsCollected;
         transitionLivesLeftText.text = "Lives Left: " + livesLeft;
 
+        string currentSceneName = SceneManager.GetActiveScene().name;
+
         if (playerDied)
         {
             levelStatusText.text = "Level Failed"; // Set the level status text
@@ -201,7 +203,7 @@ public class GameManager : MonoBehaviour
             returnToMainMenuButton.onClick.RemoveAllListeners(); // Clear any previous listeners
             returnToMainMenuButton.onClick.AddListener(ReturnToMainMenu);
         }
-        else if (isCampaignMode)
+        else if (isCampaignMode && currentSceneName != "2_Level 2")
         {
             levelStatusText.text = "Level Complete"; // Set the level status text
             proceedButton.gameObject.SetActive(true); // Show the proceed button
