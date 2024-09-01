@@ -16,16 +16,18 @@ public class PlayerShootingLaser : MonoBehaviour
 
     private const string IS_SHOOTING = "IsShooting";
     private PlayerHealthLogic playerHealth;
+    private PauseMenu gameState;
 
     void Start()
     {
         lineRenderer.enabled = false;
         playerHealth = GameObject.Find("Player").GetComponent<PlayerHealthLogic>();
+        gameState = gameState = GameObject.Find("PersistentManager").GetComponent<PauseMenu>();
     }
 
     void Update()
     {
-        if (Input.GetMouseButton(0) && !playerHealth.isHit) 
+        if (Input.GetMouseButton(0) && !playerHealth.isHit && !gameState.isPaused && !playerHealth.isDead) 
         {
             laserSFX.enabled = true;
             lineRenderer.enabled = true;  // Show the laser beam

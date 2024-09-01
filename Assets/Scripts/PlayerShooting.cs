@@ -20,17 +20,19 @@ public class PlayerShooting : MonoBehaviour
 
     private const string IS_SHOOTING = "IsShooting";
     private PlayerHealthLogic playerHealth;
+    private PauseMenu gameState;
 
     private void Start()
     {
         playerHealth = GameObject.Find("Player").GetComponent<PlayerHealthLogic>();
+        gameState = GameObject.Find("PersistentManager").GetComponent<PauseMenu>();
     }
 
     void Update()
     {
         if (Input.GetMouseButtonDown(0) || Input.GetKeyDown("r")) // Fire1 is typically the left mouse button
         {
-            if (!playerHealth.isHit)
+            if (!playerHealth.isHit && !gameState.isPaused && !playerHealth.isDead)
             {
                 isShooting = true;
                 Shoot();

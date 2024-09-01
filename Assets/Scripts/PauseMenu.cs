@@ -11,7 +11,7 @@ public class PauseMenu : MonoBehaviour
     public Button resumeButton; // Reference to the Resume Button
     public Button quitButton; // Reference to the Quit Button
 
-    private bool isPaused = false;
+    public bool isPaused = false;
 
     void Start()
     {
