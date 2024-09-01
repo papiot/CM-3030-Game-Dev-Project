@@ -64,7 +64,7 @@ public class GameManager : MonoBehaviour
     // This method is called whenever a new scene is loaded
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        // Check if the current scene is a gameplay scene
+        // Check if the current scene is a gameplay scene (e.g., "1_Level 1", "2_Level 2", etc.)
         if (scene.name.StartsWith("1_Level") || scene.name.StartsWith("2_Level"))
         {
             // Show the ScoreBoardPanel
@@ -74,6 +74,8 @@ public class GameManager : MonoBehaviour
         {
             // Hide the ScoreBoardPanel
             scoreBoardPanel.SetActive(false);
+            ResetEnemiesKilled();
+            ResetCoinsCollected();
         }
     }
 
@@ -132,9 +134,9 @@ public class GameManager : MonoBehaviour
 
     public void ResetBossHealth()
     {
-        bossHealth = 100;
+        bossHealth = 100; 
         UpdateBossHealthUI();
-        HideBossHealth();
+        HideBossHealth(); // Ensure it's hidden when the boss is not visible
     }
 
     public void ResetEnemiesKilled()
@@ -233,6 +235,8 @@ public class GameManager : MonoBehaviour
     private void ReturnToMainMenu()
     {
         transitionScreenCanvas.SetActive(false); // Hide transition screen
+        ResetEnemiesKilled();  // Reset enemies killed when returning to main menu
+        ResetCoinsCollected(); // Reset coins collected when returning to main menu
         SceneManager.LoadScene("0_IntroScreen");
     }
 
