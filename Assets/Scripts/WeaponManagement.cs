@@ -47,6 +47,9 @@ public class WeaponManagement : MonoBehaviour
 
         // Initialize the weapon text
         UpdateWeaponText(currentWeapon);
+
+        // Make weapon 2 deafult
+        SwitchWeapon(2);
     }
 
     void Update()
