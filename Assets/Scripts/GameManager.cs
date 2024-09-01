@@ -24,6 +24,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Button proceedButton;
     [SerializeField] private Button returnToMainMenuButton;
 
+    [SerializeField] private GameObject scoreBoardPanel;
+
     private int enemiesKilled = 0;
     private int coinsCollected = 0;
     private int playerHealth = 50;
@@ -55,8 +57,30 @@ public class GameManager : MonoBehaviour
         bossHealthText.gameObject.SetActive(false); // Hide boss health by default
 
         transitionScreenCanvas.SetActive(false); // Hide transition screen by default
+
+        // Show or hide the scoreboard based on the current scene
+        ToggleScoreBoardVisibility();
     }
 
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        ToggleScoreBoardVisibility();
+    }
+
+    private void ToggleScoreBoardVisibility()
+    {
+        // Check the current scene name or build index
+        string currentSceneName = SceneManager.GetActiveScene().name;
+
+        if (currentSceneName == "1_Level 1" || currentSceneName == "2_Level 2")
+        {
+            scoreBoardPanel.SetActive(true); // Show the scoreboard during gameplay
+        }
+        else
+        {
+            scoreBoardPanel.SetActive(false); // Hide the scoreboard outside of gameplay
+        }
+    }
 
     // Methods to update game stats and UI
     public void AddEnemyKill()
@@ -78,10 +102,10 @@ public class GameManager : MonoBehaviour
     }
 
     public void SetLivesLeft(int lives)
-{
-    this.livesLeft = lives;
-    UpdateLivesLeftUI();
-}
+    {
+        this.livesLeft = lives;
+        UpdateLivesLeftUI();
+    }
 
     public void SetCampaignMode(bool isCampaign)
     {
@@ -136,6 +160,7 @@ public class GameManager : MonoBehaviour
     {
         bossHealthText.text = "Boss: " + bossHealth;
     }
+
     public void UpdateWeaponText(string weaponName)
     {
         if (weaponText != null)
@@ -143,6 +168,7 @@ public class GameManager : MonoBehaviour
             weaponText.text = "Weapon: " + weaponName;
         }
     }
+
     public void ShowTransitionScreen(bool playerDied)
     {
         transitionScreenCanvas.SetActive(true);
