@@ -177,15 +177,18 @@ public class Level2Boss : MonoBehaviour
         animator.Play("Boss Dying");
         playAudio.Stop();
         bossDeathEffect.Play();
-        Invoke("DestroyEnemy", 7f);
+        Invoke("HandleBossDefeat", 7f); // Handle defeat after boss death sequence
     }
 
-    private void DestroyEnemy()
+    private void HandleBossDefeat()
     {
         Destroy(gameObject);
         GameManager.Instance.HideBossHealth(); // Hide boss health when boss is destroyed
         finishPoint.SetActive(true);
         levelClearAudio.Play();
+
+        // Trigger the transition screen after the boss is defeated
+        GameManager.Instance.ShowTransitionScreen(false);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -194,7 +197,14 @@ public class Level2Boss : MonoBehaviour
         {
             // Handle damage to the player here
             playerHealth.TakeDamage(3);
-            GameManager.Instance.SetPlayerHealth(playerHealth.health >= 0 ? playerHealth.health : 0);
+            if (playerHealth.health >= 0)
+            {
+                GameManager.Instance.SetPlayerHealth(playerHealth.health); // Notify GameManager of the new health value
+            }
+            else if (playerHealth.health < 0)
+            {
+                GameManager.Instance.SetPlayerHealth(0); // Notify GameManager of the new health value
+            }
             Debug.Log("Player Hit. Player Health: " + playerHealth.health);
         }
     }
