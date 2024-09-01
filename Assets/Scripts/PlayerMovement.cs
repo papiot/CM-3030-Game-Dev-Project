@@ -189,7 +189,7 @@ public class PlayerScript : MonoBehaviour
         if (resetVel)
             myRigidBody.velocity = Vector3.zero;
 
-        myRigidBody.AddForce(delayedForceToApply, ForceMode.Impulse);
+        myRigidBody.AddForce(delayedForceToApply, ForceMode.VelocityChange);
     }
 
     private IEnumerator ResetDash()

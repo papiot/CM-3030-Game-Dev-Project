@@ -90,7 +90,10 @@ public class PlayerHealthLogic : MonoBehaviour
             health -= damage;
             Debug.Log("Player Health: " + health);
             animator.SetTrigger("IsHit");
-            playerSFX.PlayOneShot(playerHitAudio);
+            if (!playerSFX.isPlaying)
+            {
+                playerSFX.PlayOneShot(playerHitAudio);
+            }
             playerInjured.Play();
             
 

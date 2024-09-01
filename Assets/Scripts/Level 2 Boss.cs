@@ -161,8 +161,11 @@ public class Level2Boss : MonoBehaviour
 
         if (health <= 0)
         {
-            isDead = true;
-            BossDeathSequence();
+            if (!isDead)
+            {
+                //isDead = true;
+                BossDeathSequence();
+            }
         }
     }
 
@@ -180,6 +183,7 @@ public class Level2Boss : MonoBehaviour
 
     private void BossDeathSequence()
     {
+        isDead = true;
         bossSFX.PlayOneShot(bossIntroDeathClip);
         bossAgent.enabled = false;
         animator.Play("Boss Dying");
