@@ -30,7 +30,9 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] private bool disableGravity = false;
     [SerializeField] private bool resetVel = true;
     [SerializeField] private float dashCd = 2f;
-    [SerializeField] private KeyCode dashKey = KeyCode.LeftShift;
+    [SerializeField] private KeyCode dashKey = KeyCode.Mouse1;
+    private AudioSource playerSFX;
+    [SerializeField] private AudioClip coinCollectedAudio;
 
     private bool isDashing = false;
     private float dashCdTimer;
@@ -42,6 +44,7 @@ public class PlayerScript : MonoBehaviour
     {
         myRigidBody = GetComponent<Rigidbody>();
         playerHealth = GetComponent<PlayerHealthLogic>();
+        playerSFX = GetComponent<AudioSource>();
         if (animator == null) animator = GetComponent<Animator>();
         gameScore = 0;
 
@@ -153,7 +156,7 @@ public class PlayerScript : MonoBehaviour
         if (other.gameObject.layer == 6)
         {
             gameScore += 1;
-            GetComponent<AudioSource>().Play();
+            playerSFX.PlayOneShot(coinCollectedAudio);
             Destroy(other.gameObject);
             GameManager.Instance.AddCoin();
             Debug.Log("Game Score = " + gameScore);

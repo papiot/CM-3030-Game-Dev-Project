@@ -15,12 +15,15 @@ public class PlayerHealthLogic : MonoBehaviour
     [SerializeField] private float collisionCooldown = 2f;
     [SerializeField] private Animator animator = null;
     [SerializeField] private ParticleSystem playerInjured;
+    private AudioSource playerSFX;
+    [SerializeField] private AudioClip playerHitAudio;
 
     void Start()
     {
         initialHealth = health;
         lives = GameManager.Instance.GetLivesLeft(); // Get lives from GameManager at the start
         GameManager.Instance.SetPlayerHealth(health);
+        playerSFX = GetComponent<AudioSource>();
         if (animator == null) animator = GetComponent<Animator>();
         //Debug.Log("Player Health initialized: " + health);
     }
@@ -87,7 +90,9 @@ public class PlayerHealthLogic : MonoBehaviour
             health -= damage;
             Debug.Log("Player Health: " + health);
             animator.SetTrigger("IsHit");
+            playerSFX.PlayOneShot(playerHitAudio);
             playerInjured.Play();
+            
 
             if (health <= 0)
             {
@@ -101,6 +106,7 @@ public class PlayerHealthLogic : MonoBehaviour
         if (!isDead)
         {
             isDead = true;
+            gameObject.transform.SetPositionAndRotation(gameObject.transform.position, gameObject.transform.rotation);
             animator.Play("Death");
             lives--;
 
