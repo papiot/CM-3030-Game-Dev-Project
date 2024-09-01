@@ -40,6 +40,8 @@ public class PlayerScript : MonoBehaviour
 
     private PlayerHealthLogic playerHealth;
 
+    private PauseMenu gameState;
+
     void Start()
     {
         myRigidBody = GetComponent<Rigidbody>();
@@ -50,6 +52,8 @@ public class PlayerScript : MonoBehaviour
 
         // Set the groundMask to include the Floor layer
         groundMask = LayerMask.GetMask("Floor");
+
+        gameState = GameObject.Find("PersistentManager").GetComponent<PauseMenu>();
        
     }
 
@@ -70,13 +74,13 @@ public class PlayerScript : MonoBehaviour
         horInput = Input.GetAxis("Horizontal");
         verInput = Input.GetAxis("Vertical");
 
-        if (Input.GetKeyDown(KeyCode.Space) && IsGrounded() && !playerHealth.isDead)
+        if (Input.GetKeyDown(KeyCode.Space) && IsGrounded() && !playerHealth.isDead && !gameState.isPaused)
         {
             isJumping = true;
             animator.SetBool(IS_JUMPING, isJumping);
         }
 
-        if (Input.GetKeyDown(dashKey) && !playerHealth.isDead)
+        if (Input.GetKeyDown(dashKey) && !playerHealth.isDead && !gameState.isPaused)
         {
             Dash();
         }
@@ -89,7 +93,7 @@ public class PlayerScript : MonoBehaviour
     }
     private void MovePlayer()
     {
-        if (!isDashing && !playerHealth.isDead)
+        if (!isDashing && !playerHealth.isDead && !gameState.isPaused)
         {
             Vector3 moveDir = new Vector3(horInput * moveForce, myRigidBody.velocity.y, verInput * moveForce);
             myRigidBody.velocity = moveDir;
@@ -125,7 +129,7 @@ public class PlayerScript : MonoBehaviour
 
     private void HandleJump()
     {
-        if (isJumping && !playerHealth.isDead)
+        if (isJumping && !playerHealth.isDead && !gameState.isPaused)
         {
             isWalking = false;
             myRigidBody.AddForce(Vector3.up * jumpForce, ForceMode.VelocityChange);
