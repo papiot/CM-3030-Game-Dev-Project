@@ -19,13 +19,22 @@ public class PlayerShooting : MonoBehaviour
     private bool isShooting = false;
 
     private const string IS_SHOOTING = "IsShooting";
+    private PlayerHealthLogic playerHealth;
+
+    private void Start()
+    {
+        playerHealth = GameObject.Find("Player").GetComponent<PlayerHealthLogic>();
+    }
 
     void Update()
     {
         if (Input.GetMouseButtonDown(0) || Input.GetKeyDown("r")) // Fire1 is typically the left mouse button
         {
-            isShooting = true;
-            Shoot();
+            if (!playerHealth.isHit)
+            {
+                isShooting = true;
+                Shoot();
+            }
         }   
         animator.SetBool(IS_SHOOTING, isShooting);
     }

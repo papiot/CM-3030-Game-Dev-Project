@@ -16,6 +16,7 @@ public class PlayerHealthLogic : MonoBehaviour
     [SerializeField] private ParticleSystem playerInjured;
     private AudioSource playerSFX;
     [SerializeField] private AudioClip playerHitAudio;
+    public bool isHit = false;
 
     void Start()
     {
