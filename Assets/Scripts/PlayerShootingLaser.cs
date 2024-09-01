@@ -15,15 +15,17 @@ public class PlayerShootingLaser : MonoBehaviour
     [SerializeField] AudioClip laserHitClip;
 
     private const string IS_SHOOTING = "IsShooting";
+    private PlayerHealthLogic playerHealth;
 
     void Start()
     {
         lineRenderer.enabled = false;
+        playerHealth = GameObject.Find("Player").GetComponent<PlayerHealthLogic>();
     }
 
     void Update()
     {
-        if (Input.GetMouseButton(0)) 
+        if (Input.GetMouseButton(0) && !playerHealth.isHit) 
         {
             laserSFX.enabled = true;
             lineRenderer.enabled = true;  // Show the laser beam

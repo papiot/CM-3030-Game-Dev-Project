@@ -23,7 +23,7 @@ public class PlayerShooting : MonoBehaviour
 
     private void Start()
     {
-        playerHealth = GetComponent<PlayerHealthLogic>();
+        playerHealth = GameObject.Find("Player").GetComponent<PlayerHealthLogic>();
     }
 
     void Update()
