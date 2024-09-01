@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI bossHealthText;
     [SerializeField] private TextMeshProUGUI weaponText;
 
+    [SerializeField] private GameObject scoreBoardPanel;
     [SerializeField] private GameObject transitionScreenCanvas;
     [SerializeField] private TextMeshProUGUI transitionEnemiesKilledText;
     [SerializeField] private TextMeshProUGUI transitionCoinsCollectedText;
@@ -23,8 +24,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI levelStatusText;
     [SerializeField] private Button proceedButton;
     [SerializeField] private Button returnToMainMenuButton;
-
-    [SerializeField] private GameObject scoreBoardPanel;
 
     private int enemiesKilled = 0;
     private int coinsCollected = 0;
@@ -49,6 +48,9 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        // Subscribe to the sceneLoaded event
+        SceneManager.sceneLoaded += OnSceneLoaded;
+
         // Initialize UI text elements
         UpdateEnemiesKilledUI();
         UpdateCoinsCollectedUI();
@@ -57,28 +59,21 @@ public class GameManager : MonoBehaviour
         bossHealthText.gameObject.SetActive(false); // Hide boss health by default
 
         transitionScreenCanvas.SetActive(false); // Hide transition screen by default
-
-        // Show or hide the scoreboard based on the current scene
-        ToggleScoreBoardVisibility();
     }
 
-    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    // This method is called whenever a new scene is loaded
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        ToggleScoreBoardVisibility();
-    }
-
-    private void ToggleScoreBoardVisibility()
-    {
-        // Check the current scene name or build index
-        string currentSceneName = SceneManager.GetActiveScene().name;
-
-        if (currentSceneName == "1_Level 1" || currentSceneName == "2_Level 2")
+        // Check if the current scene is a gameplay scene (e.g., "1_Level 1", "2_Level 2", etc.)
+        if (scene.name.StartsWith("1_Level") || scene.name.StartsWith("2_Level"))
         {
-            scoreBoardPanel.SetActive(true); // Show the scoreboard during gameplay
+            // Show the ScoreBoardPanel
+            scoreBoardPanel.SetActive(true);
         }
         else
         {
-            scoreBoardPanel.SetActive(false); // Hide the scoreboard outside of gameplay
+            // Hide the ScoreBoardPanel
+            scoreBoardPanel.SetActive(false);
         }
     }
 
@@ -220,5 +215,11 @@ public class GameManager : MonoBehaviour
     {
         transitionScreenCanvas.SetActive(false); // Hide transition screen
         SceneManager.LoadScene("0_IntroScreen");
+    }
+
+    void OnDestroy()
+    {
+        // Unsubscribe from the sceneLoaded event when this object is destroyed
+        SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 }
