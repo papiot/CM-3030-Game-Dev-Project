@@ -128,7 +128,7 @@ public class WeaponManagement : MonoBehaviour
                 weaponName = "Rifle";
                 break;
             case 2:
-                weaponName = "Kalashnikova";
+                weaponName = "Shotgun";
                 break;
             case 3:
                 weaponName = "Laser Gun";
