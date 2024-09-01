@@ -127,6 +127,10 @@ public class PlayerHealthLogic : MonoBehaviour
         isDead = false;
         GameManager.Instance.SetPlayerHealth(health);
 
+        // Reset enemies killed and coins collected
+        GameManager.Instance.ResetEnemiesKilled();
+        GameManager.Instance.ResetCoinsCollected();
+
         // Respawn player / reload the level
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
