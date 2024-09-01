@@ -5,14 +5,14 @@ using UnityEngine.AI;
 
 public class Level2Boss : MonoBehaviour
 {
-    // variables for player posisiton & Boss movement
-    private Transform player; // Reference to the player
+    // Variables for player position & Boss movement
+    private Transform player;
     [SerializeField] LayerMask playerMask;
     [SerializeField] NavMeshAgent bossAgent = null;
-    [SerializeField] Animator animator = null; // Reference to the Animator component
-    private Rigidbody rb; // Reference to the Rigidbody component
+    [SerializeField] Animator animator = null;
+    private Rigidbody rb;
 
-    //variables for boss attacks
+    // Variables for boss attacks
     [SerializeField] float detectionRange = 20f;
     [SerializeField] float attackRange = 3f;
     private bool isPlayerInDetectionRange;
@@ -52,11 +52,12 @@ public class Level2Boss : MonoBehaviour
         player = GameObject.Find("Player").transform;
         rb = GetComponent<Rigidbody>();
         if (bossAgent == null) bossAgent = GetComponent<NavMeshAgent>();
-        if(animator == null) animator = GetComponentInChildren<Animator>();
+        if (animator == null) animator = GetComponentInChildren<Animator>();
 
         playerHealth = GameObject.Find("Player").GetComponent<PlayerHealthLogic>();
 
         bossSFX.PlayOneShot(bossIntroDeathClip);
+        GameManager.Instance.ResetBossHealth(); // Reset boss health when it first appears
         GameManager.Instance.ShowBossHealth(health); // Show boss health when boss appears
     }
 
@@ -85,7 +86,7 @@ public class Level2Boss : MonoBehaviour
         {
             vulnerableMesh.SetActive(true);
         }
-        else if (!isVulnerable)
+        else
         {
             vulnerableMesh.SetActive(false);
         }
@@ -117,26 +118,17 @@ public class Level2Boss : MonoBehaviour
         {
             bossAgent.SetDestination(transform.position);
             transform.LookAt(player);
-        }
-        // Randomly choose between Jump Attack and Punch/Swipe Attack
-        int attackChoice = Random.Range(1, 3); // Randomly choose between 1 and 2
 
-        if (!isAttacked && isPlayerInAttackRange)
-        {
+            int attackChoice = Random.Range(1, 3); // Randomly choose between 1 and 2
 
-            if (attackChoice % 2 == 0)
+            if (!isAttacked && isPlayerInAttackRange)
             {
                 bossSFX.PlayOneShot(bossAttackingClip);
-                animator.SetTrigger("Attack1"); // Trigger the flying kick attack animation
-            }
-            else
-            {
-                bossSFX.PlayOneShot(bossAttackingClip);
-                animator.SetTrigger("Attack2"); // Trigger the hurricane kick & spell cast animation
-            }
+                animator.SetTrigger(attackChoice == 1 ? "Attack1" : "Attack2");
 
-            isAttacked = true;
-            Invoke("ResetAttack", attackCooldown);
+                isAttacked = true;
+                Invoke("ResetAttack", attackCooldown);
+            }
         }
     }
 
@@ -191,25 +183,18 @@ public class Level2Boss : MonoBehaviour
     private void DestroyEnemy()
     {
         Destroy(gameObject);
+        GameManager.Instance.HideBossHealth(); // Hide boss health when boss is destroyed
         finishPoint.SetActive(true);
         levelClearAudio.Play();
-
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player")
         {
             // Handle damage to the player here
             playerHealth.TakeDamage(3);
-            if (playerHealth.health >= 0)
-            {
-                GameManager.Instance.SetPlayerHealth(playerHealth.health); // Notify GameManager of the new health value
-            }
-            else if (playerHealth.health < 0)
-            {
-                GameManager.Instance.SetPlayerHealth(0); // Notify GameManager of the new health value
-            }
+            GameManager.Instance.SetPlayerHealth(playerHealth.health >= 0 ? playerHealth.health : 0);
             Debug.Log("Player Hit. Player Health: " + playerHealth.health);
         }
     }
@@ -222,5 +207,4 @@ public class Level2Boss : MonoBehaviour
             TakeDamage(damagePerHit);
         }
     }
-
 }

@@ -56,7 +56,7 @@ public class GameManager : MonoBehaviour
         UpdateCoinsCollectedUI();
         UpdatePlayerHealthUI();
         UpdateLivesLeftUI();
-        bossHealthText.gameObject.SetActive(false); // Hide boss health by default
+        HideBossHealth(); // Initially hide boss health
 
         transitionScreenCanvas.SetActive(false); // Hide transition screen by default
     }
@@ -64,7 +64,7 @@ public class GameManager : MonoBehaviour
     // This method is called whenever a new scene is loaded
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        // Check if the current scene is a gameplay scene (e.g., "1_Level 1", "2_Level 2", etc.)
+        // Check if the current scene is a gameplay scene ("1_Level 1" or "2_Level 2")
         if (scene.name.StartsWith("1_Level") || scene.name.StartsWith("2_Level"))
         {
             // Show the ScoreBoardPanel
@@ -128,6 +128,13 @@ public class GameManager : MonoBehaviour
     public void HideBossHealth()
     {
         bossHealthText.gameObject.SetActive(false);
+    }
+
+    public void ResetBossHealth()
+    {
+        bossHealth = 100;
+        UpdateBossHealthUI();
+        HideBossHealth(); // Ensure boss is hidden when the boss is not visible
     }
 
     // UI update methods

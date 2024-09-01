@@ -3,15 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-
 public class PlayerHealthLogic : MonoBehaviour
 {
     [SerializeField] public int health = 50; // Set initial health
     [SerializeField] public int lives = 3;
     [SerializeField] private float respawnDelay = 2f; // Delay before the player respawns
-    public bool isDead = false; // flag for player death
+    public bool isDead = false; // Flag for player death
     private int initialHealth;
-    private bool particlesCollided = false; // flag for paricle collision
+    private bool particlesCollided = false; // Flag for particle collision
     [SerializeField] private float collisionCooldown = 2f;
     [SerializeField] private Animator animator = null;
     [SerializeField] private ParticleSystem playerInjured;
@@ -22,7 +21,6 @@ public class PlayerHealthLogic : MonoBehaviour
         lives = GameManager.Instance.GetLivesLeft(); // Get lives from GameManager at the start
         GameManager.Instance.SetPlayerHealth(health);
         if (animator == null) animator = GetComponent<Animator>();
-        //Debug.Log("Player Health initialized: " + health);
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -79,7 +77,6 @@ public class PlayerHealthLogic : MonoBehaviour
         particlesCollided = false;
     }
 
-
     public void TakeDamage(int damage)
     {
         if (!isDead && health > 0)
@@ -107,6 +104,9 @@ public class PlayerHealthLogic : MonoBehaviour
             Debug.Log("Player Died. Lives remaining: " + lives);
             GameManager.Instance.SetLivesLeft(lives); // Update lives in GameManager
 
+            // Hide the boss health when the player dies
+            GameManager.Instance.HideBossHealth();
+
             if (lives > 0)
             {
                 StartCoroutine(RestartLevel());
@@ -130,14 +130,6 @@ public class PlayerHealthLogic : MonoBehaviour
         // Respawn player / reload the level
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
-
-    //private void GameOver()
-    //{
-    //    Debug.Log("Game Over. No lives left.");
-    //    // Implement your Game Over logic here, such as loading a Game Over screen
-    //    SceneManager.LoadSceneAsync(0);
-    //    GameManager.Instance.SetLivesLeft(3);
-    //}
 
     private void GameOver()
     {
