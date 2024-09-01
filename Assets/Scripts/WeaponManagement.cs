@@ -125,13 +125,13 @@ public class WeaponManagement : MonoBehaviour
         switch (weaponNum)
         {
             case 1:
-                weaponName = "Weapon 1";
+                weaponName = "Rifle";
                 break;
             case 2:
-                weaponName = "Weapon 2";
+                weaponName = "Kalashnikova";
                 break;
             case 3:
-                weaponName = "Weapon 3";
+                weaponName = "Laser Gun";
                 break;
         }
 
