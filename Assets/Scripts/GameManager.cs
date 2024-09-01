@@ -74,6 +74,8 @@ public class GameManager : MonoBehaviour
         {
             // Hide the ScoreBoardPanel
             scoreBoardPanel.SetActive(false);
+            ResetEnemiesKilled();
+            ResetCoinsCollected();
         }
     }
 
@@ -190,6 +192,8 @@ public class GameManager : MonoBehaviour
         transitionCoinsCollectedText.text = "Coins Collected: " + coinsCollected;
         transitionLivesLeftText.text = "Lives Left: " + livesLeft;
 
+        string currentSceneName = SceneManager.GetActiveScene().name;
+
         if (playerDied)
         {
             levelStatusText.text = "Level Failed"; // Set the level status text
@@ -199,7 +203,7 @@ public class GameManager : MonoBehaviour
             returnToMainMenuButton.onClick.RemoveAllListeners(); // Clear any previous listeners
             returnToMainMenuButton.onClick.AddListener(ReturnToMainMenu);
         }
-        else if (isCampaignMode)
+        else if (isCampaignMode && currentSceneName != "2_Level 2")
         {
             levelStatusText.text = "Level Complete"; // Set the level status text
             proceedButton.gameObject.SetActive(true); // Show the proceed button
@@ -233,6 +237,8 @@ public class GameManager : MonoBehaviour
     private void ReturnToMainMenu()
     {
         transitionScreenCanvas.SetActive(false); // Hide transition screen
+        ResetEnemiesKilled();  // Reset enemies killed when returning to main menu
+        ResetCoinsCollected(); // Reset coins collected when returning to main menu
         SceneManager.LoadScene("0_IntroScreen");
     }
 
