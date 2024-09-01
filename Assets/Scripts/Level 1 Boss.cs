@@ -55,7 +55,8 @@ public class Level1Boss : MonoBehaviour
         playerHealth = GameObject.Find("Player").GetComponent<PlayerHealthLogic>();
 
         bossSFX.PlayOneShot(bossIntroDeathClip);
-        GameManager.Instance.ShowBossHealth(health); // Show boss health when boss appears
+        GameManager.Instance.ResetBossHealth();  // Reset boss health when it first appears
+        GameManager.Instance.ShowBossHealth(health);  // Show boss health when boss appears
     }
 
     void Update()
@@ -180,6 +181,8 @@ public class Level1Boss : MonoBehaviour
     private void DestroyEnemy()
     {
         Destroy(gameObject);
+        GameManager.Instance.HideBossHealth();  // Hide boss health when boss is destroyed
+
         finishPoint.SetActive(true);
         levelClearAudio.Play();
 

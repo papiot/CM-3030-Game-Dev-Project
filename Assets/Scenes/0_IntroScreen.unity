@@ -36673,6 +36673,7 @@ MonoBehaviour:
   livesLeftText: {fileID: 1825561616}
   bossHealthText: {fileID: 1862121665}
   weaponText: {fileID: 1080958982}
+  scoreBoardPanel: {fileID: 2059475227}
   transitionScreenCanvas: {fileID: 722639124}
   transitionEnemiesKilledText: {fileID: 318472947}
   transitionCoinsCollectedText: {fileID: 1075341926}

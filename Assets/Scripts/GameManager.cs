@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI bossHealthText;
     [SerializeField] private TextMeshProUGUI weaponText;
 
+    [SerializeField] private GameObject scoreBoardPanel;
     [SerializeField] private GameObject transitionScreenCanvas;
     [SerializeField] private TextMeshProUGUI transitionEnemiesKilledText;
     [SerializeField] private TextMeshProUGUI transitionCoinsCollectedText;
@@ -47,16 +48,34 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        // Subscribe to the sceneLoaded event
+        SceneManager.sceneLoaded += OnSceneLoaded;
+
         // Initialize UI text elements
         UpdateEnemiesKilledUI();
         UpdateCoinsCollectedUI();
         UpdatePlayerHealthUI();
         UpdateLivesLeftUI();
-        bossHealthText.gameObject.SetActive(false); // Hide boss health by default
+        HideBossHealth(); // Initially hide boss health
 
         transitionScreenCanvas.SetActive(false); // Hide transition screen by default
     }
 
+    // This method is called whenever a new scene is loaded
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        // Check if the current scene is a gameplay scene
+        if (scene.name.StartsWith("1_Level") || scene.name.StartsWith("2_Level"))
+        {
+            // Show the ScoreBoardPanel
+            scoreBoardPanel.SetActive(true);
+        }
+        else
+        {
+            // Hide the ScoreBoardPanel
+            scoreBoardPanel.SetActive(false);
+        }
+    }
 
     // Methods to update game stats and UI
     public void AddEnemyKill()
@@ -78,10 +97,10 @@ public class GameManager : MonoBehaviour
     }
 
     public void SetLivesLeft(int lives)
-{
-    this.livesLeft = lives;
-    UpdateLivesLeftUI();
-}
+    {
+        this.livesLeft = lives;
+        UpdateLivesLeftUI();
+    }
 
     public void SetCampaignMode(bool isCampaign)
     {
@@ -111,6 +130,25 @@ public class GameManager : MonoBehaviour
         bossHealthText.gameObject.SetActive(false);
     }
 
+    public void ResetBossHealth()
+    {
+        bossHealth = 100;
+        UpdateBossHealthUI();
+        HideBossHealth();
+    }
+
+    public void ResetEnemiesKilled()
+    {
+        enemiesKilled = 0;
+        UpdateEnemiesKilledUI();
+    }
+
+    public void ResetCoinsCollected()
+    {
+        coinsCollected = 0;
+        UpdateCoinsCollectedUI();
+    }
+
     // UI update methods
     public void UpdateEnemiesKilledUI()
     {
@@ -136,6 +174,7 @@ public class GameManager : MonoBehaviour
     {
         bossHealthText.text = "Boss: " + bossHealth;
     }
+
     public void UpdateWeaponText(string weaponName)
     {
         if (weaponText != null)
@@ -143,6 +182,7 @@ public class GameManager : MonoBehaviour
             weaponText.text = "Weapon: " + weaponName;
         }
     }
+
     public void ShowTransitionScreen(bool playerDied)
     {
         transitionScreenCanvas.SetActive(true);
@@ -194,5 +234,11 @@ public class GameManager : MonoBehaviour
     {
         transitionScreenCanvas.SetActive(false); // Hide transition screen
         SceneManager.LoadScene("0_IntroScreen");
+    }
+
+    void OnDestroy()
+    {
+        // Unsubscribe from the sceneLoaded event when this object is destroyed
+        SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 }
