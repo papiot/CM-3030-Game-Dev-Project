@@ -21,11 +21,14 @@ public class WeaponManagement : MonoBehaviour
     private GameObject leftHandObject;
     private Transform leftHandTransform;
 
+    private PauseMenu gameState;
+
     void Start()
     {
         myRigidBody = GetComponent<Rigidbody>();
         if (animator == null) animator = GetComponent<Animator>();
 
+        gameState = GameObject.Find("PersistentManager").GetComponent<PauseMenu>();
         // Find the "nozzle" GameObject by name
         nozzleParent = GameObject.Find(GameObject.Find("player_nozzle").transform.parent.gameObject.name);
         GameObject currWeapon = GameObject.Find("player_nozzle");
@@ -59,18 +62,21 @@ public class WeaponManagement : MonoBehaviour
 
     private void HandleInput()
     {
-        // Handle weapon switching
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        if (!gameState.isPaused)
         {
-            SwitchWeapon(1);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            SwitchWeapon(2);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            SwitchWeapon(3);
+            // Handle weapon switching
+            if (Input.GetKeyDown(KeyCode.Alpha1))
+            {
+                SwitchWeapon(1);
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha2))
+            {
+                SwitchWeapon(2);
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha3))
+            {
+                SwitchWeapon(3);
+            }
         }
     }
 
